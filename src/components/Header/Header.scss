@@ -1,0 +1,7 @@
+@use "../../scss/utils/" as *;
+
+.test {
+  @include sm-screen {
+    display: none;
+  }
+}

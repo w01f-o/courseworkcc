@@ -1,0 +1,151 @@
+@use "sass:math";
+
+$breakpoint-xs: 0;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
+$col-offset: 15px;
+
+@mixin xs-screen {
+  @media only screen and (min-width: $breakpoint-xs) {
+    @content;
+  }
+}
+
+@mixin sm-screen {
+  @media only screen and (min-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin md-screen {
+  @media only screen and (min-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin lg-screen {
+  @media only screen and (min-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin xl-screen {
+  @media only screen and (min-width: $breakpoint-xl) {
+    @content;
+  }
+}
+
+@mixin xxl-screen {
+  @media only screen and (min-width: $breakpoint-xxl) {
+    @content;
+  }
+}
+
+.container,
+.container-fluid {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 $col-offset * 0.5;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+
+  margin: 0 $col-offset * -1;
+}
+
+.row > * {
+  box-sizing: border-box;
+  padding: 0 $col-offset * 0.5;
+}
+
+.container {
+  @include sm-screen {
+    max-width: 540px;
+  }
+  @include md-screen {
+    max-width: 720px;
+  }
+  @include lg-screen {
+    max-width: 960px;
+  }
+  @include xl-screen {
+    max-width: 1140px;
+  }
+  @include xxl-screen {
+    max-width: 1320px;
+  }
+}
+
+@for $i from 1 through 12 {
+  $width: math.div($i, 12) * 100;
+
+  .col-#{$i} {
+    flex: 0 0 $width * 1%;
+    width: $width * 1%;
+  }
+}
+
+@include sm-screen {
+  @for $i from 1 through 12 {
+    $width: math.div($i, 12) * 100;
+
+    .col-sm-#{$i} {
+      flex: 0 0 $width * 1%;
+      width: $width * 1%;
+    }
+  }
+}
+
+@include md-screen {
+  @for $i from 1 through 12 {
+    $width: math.div($i, 12) * 100;
+
+    .col-md-#{$i} {
+      flex: 0 0 $width * 1%;
+      width: $width * 1%;
+    }
+  }
+}
+
+@include lg-screen {
+  @for $i from 1 through 12 {
+    $width: math.div($i, 12) * 100;
+
+    .col-lg-#{$i} {
+      flex: 0 0 $width * 1%;
+      width: $width * 1%;
+    }
+  }
+}
+
+@include xl-screen {
+  @for $i from 1 through 12 {
+    $width: math.div($i, 12) * 100;
+
+    .col-xl-#{$i} {
+      flex: 0 0 $width * 1%;
+      width: $width * 1%;
+    }
+  }
+}
+
+@include xxl-screen {
+  @for $i from 1 through 12 {
+    $width: math.div($i, 12) * 100;
+
+    .col-xxl-#{$i} {
+      flex: 0 0 $width * 1%;
+      width: $width * 1%;
+    }
+  }
+}
+
+.offset-0 {
+  padding: 0;
+}

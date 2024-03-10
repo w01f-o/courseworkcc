@@ -1,0 +1,37 @@
+@use "./variables" as *;
+
+@mixin sm-screen {
+  @media only screen and (max-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin md-screen {
+  @media only screen and (max-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin lg-screen {
+  @media only screen and (max-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin xl-screen {
+  @media only screen and (max-width: $breakpoint-xl) {
+    @content;
+  }
+}
+
+@mixin xxl-screen {
+  @media only screen and (max-width: $breakpoint-xxl) {
+    @content;
+  }
+}
+
+@mixin flex($alignItems: center, $justifyContent: center) {
+  display: flex;
+  align-items: $alignItems;
+  justify-content: $justifyContent;
+}
