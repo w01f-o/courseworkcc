@@ -1,7 +1,7 @@
+import Footer from "components/Footer/Footer";
+import Header from "components/Header/Header";
 import { FC } from "react";
-import "./scss/App.scss";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
+import "styles/App.scss";
 
 const App: FC = (): JSX.Element => {
   return (

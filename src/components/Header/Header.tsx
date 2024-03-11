@@ -1,7 +1,7 @@
 import { FC } from "react";
 import "./Header.scss";
-import NavBar from "../NavBar/NavBar";
-import { Col, Container, Row } from "../Layout/Layout";
+import { Container, Row, Col } from "components/Layout/Layout";
+import NavBar from "components/NavBar/NavBar";
 
 const Header: FC = (): JSX.Element => {
   return (
@@ -11,6 +11,7 @@ const Header: FC = (): JSX.Element => {
           <Col xxl={2}></Col>
           <Col xxl={5}>
             <NavBar />
+            <div className="test">testets</div>
           </Col>
           <Col xxl={3}></Col>
           <Col xxl={2}></Col>
