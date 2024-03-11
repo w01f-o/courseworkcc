@@ -20,13 +20,17 @@ const HeaderSearch: FC = (): JSX.Element => {
         {searchSvg}
       </HeaderButton>
       <Modal isActive={openModal} setVisible={setOpenModal}>
-        <input
-          type="text"
-          className="header__search-input"
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setInputValue(e.target.value)
-          }
-        />
+        <div className="header__search-modal">
+          <input
+            type="text"
+            className="header__search-input"
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setInputValue(e.target.value)
+            }
+            placeholder="Введите запрос"
+          />
+          <div className="header__search-result">{debouncedInputValue}</div>
+        </div>
       </Modal>
     </div>
   );

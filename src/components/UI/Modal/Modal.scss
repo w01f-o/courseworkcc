@@ -18,11 +18,8 @@
   background: $black-40;
 
   &__content {
-    @include flex(flex-start, center);
-
-    width: 600px;
-    height: 400px;
-    padding: 2rem;
+    min-width: 600px;
+    min-height: 400px;
     border-radius: 1rem;
     transform: translateX(20px);
     opacity: 0;

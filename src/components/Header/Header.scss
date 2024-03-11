@@ -34,12 +34,18 @@
   }
 
   &__search {
-    &-input {
-      width: 80%;
+    &-modal {
+      width: 900px;
+      height: 600px;
+    }
 
-      border: 1px solid $black-40;
-      border-radius: 0.5rem;
-      padding: 0.5rem 0;
+    &-input {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid $black-40;
+
+      padding: 0.7rem 1rem;
+      background: none;
     }
   }
 }
