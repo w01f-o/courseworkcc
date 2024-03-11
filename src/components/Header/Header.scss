@@ -1,7 +1,31 @@
 @use "styles/utils/index" as *;
 
-.test {
-  @include sm-screen {
-    display: none;
+.header {
+  &__row {
+    align-items: center;
+    padding: 1.5rem 0;
+  }
+
+  &__logo {
+    @include primary-font;
+    font-size: 3rem;
+  }
+
+  &__btn-wrapper {
+    @include flex();
+    gap: 3rem;
+  }
+
+  &__login {
+    @include flex(center, flex-start);
+    gap: 1.25rem;
+
+    max-width: 10.25rem;
+
+    border-radius: 3rem;
+    cursor: pointer;
+
+    background: $white;
+    @include secondary-font;
   }
 }

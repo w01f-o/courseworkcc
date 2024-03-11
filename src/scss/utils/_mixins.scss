@@ -30,8 +30,40 @@
   }
 }
 
+@mixin hover-screen {
+  @media (hover: hover) {
+    @content;
+  }
+}
+
+@mixin not-hover-screen {
+  @media (hover: none) {
+    @content;
+  }
+}
+
 @mixin flex($alignItems: center, $justifyContent: center) {
   display: flex;
   align-items: $alignItems;
   justify-content: $justifyContent;
+}
+
+@mixin primary-font {
+  font: {
+    size: 1.5rem;
+    weight: 500;
+  }
+}
+
+@mixin secondary-font {
+  @include primary-font;
+
+  font-size: 1.125rem;
+}
+
+@mixin title-font {
+  font: {
+    size: 3rem;
+    weight: 600;
+  }
 }

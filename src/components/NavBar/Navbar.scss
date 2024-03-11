@@ -1,2 +1,35 @@
+@use "styles/utils/index" as *;
+
 .nav {
+  &__list {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  &__link {
+    position: relative;
+    @include secondary-font;
+
+    $transitionTime: 0.3s;
+
+    @include hover-screen {
+      &::before {
+        position: absolute;
+        content: "";
+        top: 1.3rem;
+        left: 0;
+
+        width: 0;
+        height: 2px;
+        transition: $transitionTime;
+
+        background: $black;
+      }
+
+      &:hover::before {
+        width: 100%;
+        transition: $transitionTime;
+      }
+    }
+  }
 }
