@@ -41,9 +41,10 @@ export const Col: FC<ColProps> = ({
   sm,
   xs,
   children,
+  className,
   ...props
 }): JSX.Element => {
-  const className: string = [
+  const classNameArr: string = [
     `${xxl ? `col-xxl-${xxl}` : ""}`,
     `${xl ? `col-xl-${xl}` : ""}`,
     `${lg ? `col-lg-${lg}` : ""}`,
@@ -54,7 +55,10 @@ export const Col: FC<ColProps> = ({
     .filter((size: string) => size !== "")
     .join(" ");
   return (
-    <div className={className} {...props}>
+    <div
+      className={`${classNameArr}${className ? ` ${className}` : ""}`}
+      {...props}
+    >
       {children}
     </div>
   );

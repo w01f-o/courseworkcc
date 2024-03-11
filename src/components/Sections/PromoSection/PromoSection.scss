@@ -1,0 +1,28 @@
+@use "styles/utils/index" as *;
+
+.promo {
+  &__row {
+    position: relative;
+  }
+
+  &__img-wrapper {
+    // display: none;
+    position: absolute;
+    right: 23.625rem;
+    top: -12.625rem;
+    z-index: -1;
+
+    height: 950px;
+    transform: rotate(29deg);
+
+    img {
+      height: 100%;
+    }
+  }
+
+  &__title {
+    padding: 13.688rem 0;
+    margin-bottom: 8rem;
+    @include title-font;
+  }
+}

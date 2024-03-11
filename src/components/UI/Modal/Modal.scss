@@ -1,0 +1,46 @@
+@use "styles/utils/index" as *;
+
+.modal {
+  @include flex();
+
+  width: 100vw;
+  height: 100vh;
+
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  pointer-events: none;
+  visibility: hidden;
+
+  opacity: 0.5;
+  transition: 0.1s;
+
+  background: $black-40;
+
+  &__content {
+    @include flex(flex-start, center);
+
+    width: 600px;
+    height: 400px;
+    padding: 2rem;
+    border-radius: 1rem;
+    transform: translateX(20px);
+    opacity: 0;
+    transition: 0.15s;
+
+    background: $white;
+  }
+
+  &.open {
+    pointer-events: all;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.1s;
+
+    .modal__content {
+      transition: 0.15s;
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}

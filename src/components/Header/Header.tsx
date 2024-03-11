@@ -26,7 +26,7 @@ const Header: FC = (): JSX.Element => {
               </div>
             </div>
           </Col>
-          <Col xxl={2}>
+          <Col xxl={2} className="flex-end">
             <HeaderLogin />
           </Col>
         </Row>
