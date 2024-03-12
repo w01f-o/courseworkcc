@@ -6,14 +6,13 @@
   }
 
   &__img-wrapper {
-    // display: none;
     position: absolute;
-    right: 23.625rem;
-    top: -12.625rem;
+    right: 30rem;
+    top: 50%;
     z-index: -1;
 
-    height: 950px;
-    transform: rotate(29deg);
+    height: 700px;
+    transform: rotate(27deg) translateY(-55%);
 
     img {
       height: 100%;

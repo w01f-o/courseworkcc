@@ -1,21 +1,24 @@
 import { FC } from "react";
 import "./Navbar.scss";
-
-const navBarPaths: string[] = ["Каталог", "FAQ", "Контакты", "Магазины"];
+import { NavLink } from "react-router-dom";
+import { routes } from "routes/routes";
+import IRoute from "types/routesType";
 
 const NavBar: FC = (): JSX.Element => {
   return (
     <nav className="nav">
       <ul className="nav__list">
-        {navBarPaths.map(
-          (path: string, index: number): JSX.Element => (
-            <li className="nav__item" key={index}>
-              <a href="#" className="nav__link">
-                {path}
-              </a>
-            </li>
-          )
-        )}
+        {routes.map((route: IRoute): JSX.Element | undefined => {
+          if (route.inNavBar) {
+            return (
+              <li className="nav__item" key={route.key}>
+                <NavLink to={route.path} className="nav__link">
+                  {route.name}
+                </NavLink>
+              </li>
+            );
+          }
+        })}
       </ul>
     </nav>
   );

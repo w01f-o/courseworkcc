@@ -1,8 +1,7 @@
 import HeaderButton from "components/UI/HeaderButton/HeaderButton";
-import { FC } from "react";
+import { FC, useState } from "react";
 import { loginSvg } from "./svg/svg";
 import Modal from "components/UI/Modal/Modal";
-import { useState } from "react";
 
 const HeaderLogin: FC = (): JSX.Element => {
   const [openModal, setOpenModal] = useState<boolean>(false);
@@ -13,8 +12,8 @@ const HeaderLogin: FC = (): JSX.Element => {
         <HeaderButton>{loginSvg}</HeaderButton>
         Войти
       </div>
-      <Modal isActive={openModal} setVisible={setOpenModal}>
-        <div></div>
+      <Modal isOpen={openModal} setOpen={setOpenModal}>
+        <div>Login</div>
       </Modal>
     </>
   );

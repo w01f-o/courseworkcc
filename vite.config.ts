@@ -12,6 +12,7 @@ export default defineConfig({
       types: "/src/types",
       utils: "/src/utils",
       styles: "/src/scss/",
+      routes: "/src/routes",
     },
   },
 });

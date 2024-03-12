@@ -20,7 +20,8 @@
       "hooks/*": ["hooks/*"],
       "types/*": ["types/*"],
       "utils/*": ["utils/*"],
-      "styles/*": ["scss/*"]
+      "styles/*": ["scss/*"],
+      "routes/*": ["routes/*"]
     },
 
     /* Linting */

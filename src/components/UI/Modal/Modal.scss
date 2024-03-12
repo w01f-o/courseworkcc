@@ -3,41 +3,53 @@
 .modal {
   @include flex();
 
-  width: 100vw;
-  height: 100vh;
-
   position: fixed;
   inset: 0;
-  z-index: 5000;
-  pointer-events: none;
-  visibility: hidden;
-
-  opacity: 0.5;
-  transition: 0.1s;
 
   background: $black-40;
+  z-index: 5000;
 
   &__content {
-    min-width: 600px;
-    min-height: 400px;
+    width: 600px;
+    height: 400px;
     border-radius: 1rem;
-    transform: translateX(20px);
-    opacity: 0;
-    transition: 0.15s;
 
     background: $white;
   }
 
-  &.open {
-    pointer-events: all;
-    visibility: visible;
-    opacity: 1;
-    transition: 0.1s;
+  &.modal-enter {
+    opacity: 0;
+  }
 
-    .modal__content {
-      transition: 0.15s;
-      opacity: 1;
-      transform: translateX(0);
-    }
+  &.modal-enter-active {
+    opacity: 1;
+    transition: opacity 300ms;
+  }
+
+  &.modal-exit {
+    opacity: 1;
+  }
+
+  &.modal-exit-active {
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+
+  &.modal-enter > &__content {
+    transform: translateX(20px);
+  }
+
+  &.modal-enter-active > &__content {
+    transform: translateX(0);
+    transition: transform 200ms;
+  }
+
+  &.modal-exit > &__content {
+    transform: translateX(0);
+  }
+
+  &.modal-exit-active > &__content {
+    transform: translateX(20px);
+    transition: transform 200ms;
   }
 }

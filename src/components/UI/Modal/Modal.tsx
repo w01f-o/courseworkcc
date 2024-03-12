@@ -1,25 +1,25 @@
 import { Dispatch, FC, SetStateAction } from "react";
 import "./Modal.scss";
+import { CSSTransition } from "react-transition-group";
 
 interface ModalProps {
-  isActive: boolean;
-  setVisible: Dispatch<SetStateAction<boolean>>;
+  isOpen: boolean;
+  setOpen: Dispatch<SetStateAction<boolean>>;
   children: React.ReactNode;
 }
 
-const Modal: FC<ModalProps> = ({ isActive, setVisible, children }) => {
+const Modal: FC<ModalProps> = ({ isOpen, setOpen, children }): JSX.Element => {
   return (
-    <div
-      className={`modal${isActive ? " open" : ""}`}
-      onClick={() => setVisible(false)}
-    >
-      <div
-        className="modal__content"
-        onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}
-      >
-        {children}
+    <CSSTransition in={isOpen} unmountOnExit timeout={300} classNames="modal">
+      <div className="modal" onClick={() => setOpen(false)}>
+        <div
+          className="modal__content"
+          onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}
+        >
+          {children}
+        </div>
       </div>
-    </div>
+    </CSSTransition>
   );
 };
 

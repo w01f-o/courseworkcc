@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect, useRef } from "react";
 import mousePng from "./img/mouse.png";
 import { Col, Container, Row } from "components/Layout/Layout";
 import "./PromoSection.scss";

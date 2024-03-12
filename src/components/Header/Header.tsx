@@ -6,6 +6,7 @@ import "./Header.scss";
 import HeaderLogin from "./HeaderLogin";
 import HeaderSearch from "./HeaderSearch";
 import { basketSvg } from "./svg/svg";
+import { NavLink } from "react-router-dom";
 
 const Header: FC = (): JSX.Element => {
   return (
@@ -13,7 +14,9 @@ const Header: FC = (): JSX.Element => {
       <Container>
         <Row className="header__row">
           <Col xxl={2}>
-            <div className="header__logo">C & C</div>
+            <NavLink to="/" className="header__logo">
+              C & C
+            </NavLink>
           </Col>
           <Col xxl={5}>
             <NavBar />
@@ -21,9 +24,9 @@ const Header: FC = (): JSX.Element => {
           <Col xxl={3}>
             <div className="header__btn-wrapper">
               <HeaderSearch />
-              <div className="header__basket">
+              <NavLink to="/basket" className="header__basket">
                 <HeaderButton>{basketSvg}</HeaderButton>
-              </div>
+              </NavLink>
             </div>
           </Col>
           <Col xxl={2} className="flex-end">
