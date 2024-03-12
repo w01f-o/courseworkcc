@@ -1,0 +1,58 @@
+@use "styles/utils/index" as *;
+
+.catalog {
+  &__products {
+    &__item {
+      display: grid;
+      grid-template-areas:
+        "img img"
+        "name name"
+        "stars btn"
+        "price btn";
+
+      row-gap: 0.5rem;
+      padding: 1.75rem 0.813rem;
+      margin-bottom: 1.5rem;
+
+      border-radius: 25px;
+      background: $white-40;
+      @include secondary-font;
+    }
+  }
+}
+
+.products {
+  &__item {
+    &-img-wrapper {
+      @include flex();
+      grid-area: img;
+      padding-bottom: 1.25rem;
+    }
+
+    &-name {
+      grid-area: name;
+    }
+
+    &-price {
+      grid-area: price;
+      font-weight: 600;
+    }
+
+    &-buttons {
+      @include flex(stretch, space-between);
+      gap: 1rem;
+      grid-area: btn;
+      margin-top: 0.5rem;
+      justify-self: flex-end;
+    }
+
+    &-count {
+      align-self: center;
+    }
+  }
+}
+
+.stars {
+  grid-area: stars;
+  margin-top: 0.5rem;
+}

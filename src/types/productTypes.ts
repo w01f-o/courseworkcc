@@ -34,9 +34,14 @@ export interface IProduct {
   price: number;
   specifications: ISpecifications;
   reviews: IReview[];
+  count: number;
 }
 
-export type IBasketProduct = Omit<
-  IProduct,
-  "imgBig" & "specification" & "reviews"
->;
+export interface IBasketProduct {
+  id: number;
+  name: string;
+  price: number;
+  altName: string;
+  img: string;
+  count?: number;
+}

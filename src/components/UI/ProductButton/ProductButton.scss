@@ -1,0 +1,25 @@
+@use "styles/utils/index" as *;
+
+.product-btn {
+  @include flex();
+
+  border: 2px solid $black;
+  border-radius: 10px;
+  padding: 0.375rem 0.75rem;
+  transition: 0.1s;
+
+  background: $black;
+
+  @include hover-screen {
+    &:hover {
+      background: none;
+      transition: 0.1s;
+    }
+
+    &:hover > svg {
+      path {
+        stroke: $black;
+      }
+    }
+  }
+}
