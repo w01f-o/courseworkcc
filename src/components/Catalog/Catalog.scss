@@ -1,6 +1,10 @@
 @use "styles/utils/index" as *;
 
 .catalog {
+  &__row {
+    padding-top: 1.125rem;
+  }
+
   &__products {
     &__item {
       display: grid;
@@ -17,6 +21,71 @@
       border-radius: 25px;
       background: $white-40;
       @include secondary-font;
+
+      &.rows-mode {
+        grid-template: repeat(3, 1fr) / 1fr 3fr 1fr;
+
+        justify-content: start;
+        align-items: center;
+
+        .products__item-count,
+        .stars,
+        .products__item-name {
+          grid-area: auto;
+        }
+
+        .products__item-price {
+          grid-area: auto;
+          grid-column: span 2;
+        }
+
+        .products__item-buttons {
+          grid-area: auto;
+          align-self: stretch;
+          padding-right: 2rem;
+        }
+
+        .products__item-img-wrapper {
+          grid-area: auto;
+          grid-row: span 3;
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+
+  &__filter {
+    height: 300px;
+    margin-right: 1rem;
+    border-radius: 25px;
+    background: $white-40;
+  }
+
+  &__topbar {
+    @include flex(center, space-between);
+
+    padding: 0.875rem 1.875rem;
+    margin-bottom: 1.2rem;
+    border-radius: 25px;
+
+    background: $white-40;
+    @include secondary-font;
+
+    &-switcher {
+      @include flex();
+      gap: 0.5rem;
+
+      span {
+        cursor: pointer;
+
+        &.active {
+          svg {
+            rect {
+              stroke-opacity: 1;
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -53,6 +122,8 @@
 }
 
 .stars {
+  @include flex(center, flex-start);
+  gap: 0.15rem;
   grid-area: stars;
   margin-top: 0.5rem;
 }

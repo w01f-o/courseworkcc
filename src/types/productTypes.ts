@@ -34,7 +34,6 @@ export interface IProduct {
   price: number;
   specifications: ISpecifications;
   reviews: IReview[];
-  count: number;
 }
 
 export interface IBasketProduct {

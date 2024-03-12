@@ -85,3 +85,85 @@ export const minusSvg = (
     <rect width="15" height="3" fill="#F1F1F1" />
   </svg>
 );
+
+export const cellsSvg = (
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 18 18"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect
+      x="1.25"
+      y="1.25"
+      strokeOpacity="0.4"
+      width="6.5"
+      height="6.5"
+      rx="2.25"
+      stroke="black"
+      strokeWidth="1.5"
+    />
+    <rect
+      x="10.25"
+      y="1.25"
+      strokeOpacity="0.4"
+      width="6.5"
+      height="6.5"
+      rx="2.25"
+      stroke="black"
+      strokeWidth="1.5"
+    />
+    <rect
+      x="1.25"
+      y="10.25"
+      strokeOpacity="0.4"
+      width="6.5"
+      height="6.5"
+      rx="2.25"
+      stroke="black"
+      strokeWidth="1.5"
+    />
+    <rect
+      x="10.25"
+      y="10.25"
+      strokeOpacity="0.4"
+      width="6.5"
+      height="6.5"
+      rx="2.25"
+      stroke="black"
+      strokeWidth="1.5"
+    />
+  </svg>
+);
+
+export const rowsSvg = (
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 18 18"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect
+      x="1.25"
+      y="1.25"
+      strokeOpacity="0.4"
+      width="15.5"
+      height="6.5"
+      rx="2.25"
+      stroke="black"
+      strokeWidth="1.5"
+    />
+    <rect
+      x="1.25"
+      y="10.25"
+      strokeOpacity="0.4"
+      width="15.5"
+      height="6.5"
+      rx="2.25"
+      stroke="black"
+      strokeWidth="1.5"
+    />
+  </svg>
+);

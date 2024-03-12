@@ -3,6 +3,8 @@ import { FC, useContext } from "react";
 import { basketSvg, minusSvg, plusSvg } from "./svg/svg";
 import ReviewsStars from "components/UI/ReviewsStars/ReviewsStars";
 import { BasketContext } from "context/BasketContext";
+import { CatalogContext } from "context/CatalogContext";
+import { Link } from "react-router-dom";
 
 interface ProductItemProps {
   img: string;
@@ -28,12 +30,19 @@ const ProductItem: FC<ProductItemProps> = ({
     plusOneToBasket,
     minusOneFromBasket,
   } = useContext(BasketContext);
+  const { viewMode } = useContext(CatalogContext);
   return (
-    <div className="catalog__products__item">
+    <div
+      className={`catalog__products__item${
+        viewMode === 12 ? " rows-mode" : ""
+      }`}
+    >
       <div className="products__item-img-wrapper">
         <img src={img} alt={altName} />
       </div>
-      <div className="products__item-name">{name}</div>
+      <Link className="products__item-name" to={`/catalog/${id}`}>
+        {name}
+      </Link>
       <div className="products__item-price">{price} ₽</div>
       <ReviewsStars evaluation={evaluation} />
       <div className="products__item-buttons">
