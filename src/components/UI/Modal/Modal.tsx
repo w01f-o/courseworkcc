@@ -11,10 +11,12 @@ interface ModalProps {
 const Modal: FC<ModalProps> = ({ isOpen, setOpen, children }): JSX.Element => {
   return (
     <CSSTransition in={isOpen} unmountOnExit timeout={300} classNames="modal">
-      <div className="modal" onClick={() => setOpen(false)}>
+      <div className="modal" onMouseDown={() => setOpen(false)}>
         <div
           className="modal__content"
-          onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}
+          onMouseDown={(e: React.MouseEvent<HTMLDivElement>) =>
+            e.stopPropagation()
+          }
         >
           {children}
         </div>

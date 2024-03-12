@@ -35,3 +35,8 @@ export interface IProduct {
   specifications: ISpecifications;
   reviews: IReview[];
 }
+
+export type IBasketProduct = Omit<
+  IProduct,
+  "imgBig" & "specification" & "reviews"
+>;
