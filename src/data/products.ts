@@ -18,7 +18,17 @@ import g304big4 from "./assets/img/g304big4.png";
 import g304big5 from "./assets/img/g304big5.png";
 import g304big6 from "./assets/img/g304big6.png";
 import g403 from "./assets/img/g403.png";
+import g403big from "./assets/img/g403big.png";
+import g403big2 from "./assets/img/g403big2.png";
+import g403big3 from "./assets/img/g403big3.png";
+import g403big4 from "./assets/img/g403big4.png";
+import g403big5 from "./assets/img/g403big5.png";
 import g502 from "./assets/img/g502.png";
+import g502big from "./assets/img/g502big.png";
+import g502big2 from "./assets/img/g502big2.png";
+import g502big3 from "./assets/img/g502big3.png";
+import g502big4 from "./assets/img/g502big4.png";
+import g502big5 from "./assets/img/g502big5.png";
 import g603 from "./assets/img/g603.png";
 import gpro from "./assets/img/gpro.png";
 
@@ -196,7 +206,7 @@ export const products: IProduct[] = [
     manufacturer: "logitech",
     altName: "logitechG502hero",
     imgSmall: g502,
-    imgBig: ["", "", ""],
+    imgBig: [g502big, g502big2, g502big3, g502big4, g502big5],
     description:
       "Мышь проводная Logitech G502 HERO – игровой манипулятор с 11 кнопками в конструкции. Устройство располагает встроенной памятью, в которую можно сохранить настройки разрешения, конфигурацию программируемых кнопок и параметры RGB-подсветки.",
     price: 4699,
@@ -249,7 +259,7 @@ export const products: IProduct[] = [
     manufacturer: "logitech",
     altName: "logitechG403hero",
     imgSmall: g403,
-    imgBig: ["", "", ""],
+    imgBig: [g403big, g403big2, g403big3, g403big4, g403big5],
     description:
       "Мышь проводная Logitech G403 HERO [910-005636] – игровая модель с черным дизайном для хвата правой рукой. Система регулировки веса с набором грузиков в комплекте позволяет настраивать удобную массу устройства. ",
     price: 5999,
