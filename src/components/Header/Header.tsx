@@ -4,7 +4,7 @@ import HeaderButton from "components/UI/HeaderButton/HeaderButton";
 import { FC } from "react";
 import "./Header.scss";
 import HeaderLogin from "./HeaderLogin";
-import HeaderSearch from "./HeaderSearch";
+import HeaderSearch from "./HeaderSearch/HeaderSearch";
 import { basketSvg } from "./svg/svg";
 import { NavLink } from "react-router-dom";
 

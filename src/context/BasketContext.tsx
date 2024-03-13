@@ -31,7 +31,6 @@ const BasketContextProvider: FC<BasketContextProvider> = ({ children }) => {
     setBasketTotalCount(
       basket.reduce((acc, item) => (item.count ? acc + item.count : 0), 0)
     );
-    console.log(basket);
   }, [basket]);
 
   const addToBasket = (product: IBasketProduct) => {
