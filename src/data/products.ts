@@ -1,8 +1,22 @@
 import { IProduct } from "types/productTypes";
 import gprox from "./assets/img/gprox.png";
 import gproxBig from "./assets/img/gproxBig.png";
+import gproxBig2 from "./assets/img/gproxBig2.png";
+import gproxBig3 from "./assets/img/gproxBig3.png";
+import gproxBig4 from "./assets/img/gproxBig4.png";
+import gproxBig5 from "./assets/img/gproxBig5.png";
 import g102 from "./assets/img/g102.png";
+import g102big from "./assets/img/g102big.png";
+import g102big2 from "./assets/img/g102big2.png";
+import g102big3 from "./assets/img/g102big3.png";
+import g102big4 from "./assets/img/g102big4.png";
 import g304 from "./assets/img/g304.png";
+import g304big from "./assets/img/g304big.png";
+import g304big2 from "./assets/img/g304big2.png";
+import g304big3 from "./assets/img/g304big3.png";
+import g304big4 from "./assets/img/g304big4.png";
+import g304big5 from "./assets/img/g304big5.png";
+import g304big6 from "./assets/img/g304big6.png";
 import g403 from "./assets/img/g403.png";
 import g502 from "./assets/img/g502.png";
 import g603 from "./assets/img/g603.png";
@@ -15,7 +29,7 @@ export const products: IProduct[] = [
     manufacturer: "logitech",
     altName: "logitechGproXSuperlight",
     imgSmall: gprox,
-    imgBig: [gproxBig, gproxBig, gproxBig],
+    imgBig: [gproxBig, gproxBig2, gproxBig3, gproxBig4, gproxBig5],
     description:
       "Менее 63 грамм. Усовершенствованная беспроводная связь LIGHTSPEED с низкой задержкой. Субмикронная точность благодаря датчику HERO 25K. Устраните все препятствия с помощью нашей самой легкой и быстрой мыши PRO.",
     price: 14899,
@@ -69,7 +83,7 @@ export const products: IProduct[] = [
     manufacturer: "logitech",
     altName: "logitechG102lightsync",
     imgSmall: g102,
-    imgBig: ["", "", ""],
+    imgBig: [g102big, g102big2, g102big3, g102big4],
     description:
       "Мышь Logitech G102 LIGHTSYNC позволяет геймеру проходить игры с максимальным комфортом и эффективностью. Данная модель манипулятора обеспечивает стабильное подключение по проводному интерфейсу USB и быструю реакцию на перемещения курсора благодаря датчику с показателем чувствительности до 8000 dpi.",
     price: 2499,
@@ -122,7 +136,7 @@ export const products: IProduct[] = [
     manufacturer: "logitech",
     altName: "logitechG304lightspeed",
     imgSmall: g304,
-    imgBig: ["", "", ""],
+    imgBig: [g304big, g304big2, g304big3, g304big4, g304big5, g304big6],
     description:
       "Оснащенная 6 программируемыми кнопками мышь беспроводная Logitech G304 LIGHTSPEED [910-005286] подходит для комплектации ноутбуков и стационарных компьютеров, преимущественно используемых для игр. ",
     price: 4199,
