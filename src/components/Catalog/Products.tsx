@@ -1,5 +1,5 @@
 import { Col, Row } from "components/Layout/Layout";
-import { products } from "../../data/products.json";
+import { products } from "../../data/products";
 import { IProduct } from "types/productTypes";
 import ProductItem from "./ProductItem";
 import { CatalogContext } from "context/CatalogContext";

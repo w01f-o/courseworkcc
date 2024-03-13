@@ -1,7 +1,7 @@
 import { Col, Container, Row } from "components/Layout/Layout";
 import ProductButtons from "components/UI/ProductButton/ProductButton";
 import ReviewsStars from "components/UI/ReviewsStars/ReviewsStars";
-import { FC, useMemo } from "react";
+import { FC, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -9,9 +9,16 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import { IProduct } from "types/productTypes";
 import { getCountArray } from "utils/getCountArray";
-import { products } from "../../data/products.json";
+import { products } from "../../data/products";
 import NotFoundPage from "../../pages/NotFoundPage";
 import "./Product.scss";
+import ProductSpecifications from "./ProductSpecifications";
+import ProductReviews from "./ProductReviews/ProductReviews";
+
+enum CurrentTabEnum {
+  specifications,
+  reviews,
+}
 
 const Product: FC = () => {
   const { id } = useParams();
@@ -28,6 +35,10 @@ const Product: FC = () => {
       return getCountArray(product?.imgBig.length);
     }
   }, [product?.imgBig.length]);
+
+  const [currentTab, setCurrentTab] = useState<CurrentTabEnum>(
+    CurrentTabEnum.specifications
+  );
 
   return (
     <Container>
@@ -78,6 +89,33 @@ const Product: FC = () => {
                   </div>
                 </div>
               </div>
+            </Col>
+            <Col xxl={12}>
+              <div className="product__tabs">
+                <button
+                  className={`product__tabs-item${
+                    currentTab === CurrentTabEnum.specifications
+                      ? " active"
+                      : ""
+                  }`}
+                  onClick={() => setCurrentTab(CurrentTabEnum.specifications)}
+                >
+                  Характеристики
+                </button>
+                <button
+                  className={`product__tabs-item${
+                    currentTab === CurrentTabEnum.reviews ? " active" : ""
+                  }`}
+                  onClick={() => setCurrentTab(CurrentTabEnum.reviews)}
+                >
+                  Отзывы
+                </button>
+              </div>
+              {currentTab === CurrentTabEnum.specifications ? (
+                <ProductSpecifications specification={product.specifications} />
+              ) : (
+                <ProductReviews reviews={product.reviews} />
+              )}
             </Col>
           </>
         ) : (

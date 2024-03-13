@@ -2,7 +2,7 @@
 
 .product {
   &__row {
-    padding-top: 3.5rem;
+    padding: 3.5rem 0;
 
     .swiper-wrapper {
       padding-bottom: 2rem;
@@ -14,6 +14,72 @@
 
     .swiper-pagination-bullet {
       background: $black;
+    }
+  }
+
+  &__tabs {
+    display: flex;
+    gap: 1rem;
+    padding: 5rem 0 2rem 0;
+    &-item {
+      border: none;
+      border-radius: 10px;
+      padding: 0.8rem 1.5rem;
+      opacity: 0.5;
+      background: $white-40;
+      @include secondary-font;
+
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__specification {
+    &-title {
+      @include secondary-font;
+      padding: 1.5rem 0;
+
+      font: {
+        size: 1.4rem;
+        weight: 600;
+      }
+    }
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    &-item {
+      @include secondary-font;
+    }
+  }
+
+  &__reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    &-item {
+      max-width: 70%;
+      padding: 1.5rem;
+      border-radius: 10px;
+
+      background: $white-40;
+    }
+
+    &-name {
+      display: flex;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      @include primary-font;
+    }
+
+    &-body {
+      line-height: 120%;
+      @include secondary-font;
     }
   }
 

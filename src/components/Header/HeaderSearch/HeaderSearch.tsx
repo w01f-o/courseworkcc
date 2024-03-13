@@ -2,7 +2,7 @@ import HeaderButton from "components/UI/HeaderButton/HeaderButton";
 import { FC, useMemo, useState } from "react";
 import { searchSvg } from "../svg/svg";
 import Modal from "components/UI/Modal/Modal";
-import { products } from "../../../data/products.json";
+import { products } from "../../../data/products";
 import { IProduct } from "types/productTypes";
 import SearchItem from "./SearchItem";
 
