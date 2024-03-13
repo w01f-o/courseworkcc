@@ -6,6 +6,7 @@ import { Route, Routes } from "react-router-dom";
 import { routes } from "./routes/routes";
 import IRoute from "types/routesType";
 import BasketContextProvider from "context/BasketContext";
+import ScrollToTop from "utils/ScrollToTop";
 
 const App: FC = (): JSX.Element => {
   return (
@@ -13,6 +14,7 @@ const App: FC = (): JSX.Element => {
       <BasketContextProvider>
         <Header />
         <main className="main">
+          <ScrollToTop />
           <Routes>
             {routes.map((route: IRoute) => (
               <Route

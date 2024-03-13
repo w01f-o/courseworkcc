@@ -12,6 +12,8 @@ interface SearchItemProps {
 const SearchItem: FC<SearchItemProps> = ({
   name,
   id,
+  img,
+  price,
   clearModal,
 }): JSX.Element => {
   return (
@@ -20,7 +22,9 @@ const SearchItem: FC<SearchItemProps> = ({
       className="header__search-item"
       onClick={clearModal}
     >
-      {name}
+      <img src={img} alt="" className="header__search-item-img" />
+      <div className="header__search-item-name">{name}</div>
+      <div className="header__search-item-price">{price} ₽</div>
     </Link>
   );
 };

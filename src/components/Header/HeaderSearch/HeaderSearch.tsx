@@ -38,17 +38,19 @@ const HeaderSearch: FC = (): JSX.Element => {
               setInputValue(e.target.value)
             }
           />
-          {inputValue &&
-            searchedProducts.map((product: IProduct) => (
-              <SearchItem
-                key={product.id}
-                name={product.name}
-                id={product.id}
-                img={product.imgSmall}
-                price={product.price}
-                clearModal={clearModal}
-              />
-            ))}
+          <div className="header__search-wrapper">
+            {inputValue &&
+              searchedProducts.map((product: IProduct) => (
+                <SearchItem
+                  key={product.id}
+                  name={product.name}
+                  id={product.id}
+                  img={product.imgSmall}
+                  price={product.price}
+                  clearModal={clearModal}
+                />
+              ))}
+          </div>
         </div>
       </Modal>
     </div>

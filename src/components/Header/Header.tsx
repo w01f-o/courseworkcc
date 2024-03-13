@@ -3,7 +3,7 @@ import NavBar from "components/NavBar/NavBar";
 import HeaderButton from "components/UI/HeaderButton/HeaderButton";
 import { FC } from "react";
 import "./Header.scss";
-import HeaderLogin from "./HeaderLogin";
+import HeaderAuth from "./HeaderAuth/HeaderAuth";
 import HeaderSearch from "./HeaderSearch/HeaderSearch";
 import { basketSvg } from "./svg/svg";
 import { NavLink } from "react-router-dom";
@@ -30,7 +30,7 @@ const Header: FC = (): JSX.Element => {
             </div>
           </Col>
           <Col xxl={2} className="flex-end">
-            <HeaderLogin />
+            <HeaderAuth />
           </Col>
         </Row>
       </Container>
