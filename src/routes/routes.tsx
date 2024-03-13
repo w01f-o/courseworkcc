@@ -6,6 +6,7 @@ import ContactsPage from "../pages/ContactsPage";
 import ShopsPage from "../pages/ShopsPage";
 import BasketPage from "../pages/BasketPage";
 import NotFoundPage from "../pages/NotFoundPage";
+import ProductPage from "../pages/ProductPage";
 
 export const routes: IRoute[] = [
   { path: "/", element: <MainPage />, name: "Главная", key: 1, inNavBar: true },
@@ -16,33 +17,40 @@ export const routes: IRoute[] = [
     key: 2,
     inNavBar: true,
   },
-  { path: "/faq", element: <FaqPage />, name: "FAQ", key: 3, inNavBar: true },
+  {
+    path: "/catalog/product/:id",
+    element: <ProductPage />,
+    name: "Товар",
+    key: 3,
+    inNavBar: false,
+  },
+  { path: "/faq", element: <FaqPage />, name: "FAQ", key: 4, inNavBar: true },
   {
     path: "/contacts",
     element: <ContactsPage />,
     name: "Контакты",
-    key: 4,
+    key: 5,
     inNavBar: true,
   },
   {
     path: "/shops",
     element: <ShopsPage />,
     name: "Магазины",
-    key: 5,
+    key: 6,
     inNavBar: true,
   },
   {
     path: "/basket",
     element: <BasketPage />,
     name: "Корзина",
-    key: 6,
+    key: 7,
     inNavBar: false,
   },
   {
     path: "*",
     element: <NotFoundPage />,
     name: "404",
-    key: 7,
+    key: 8,
     inNavBar: false,
   },
 ];

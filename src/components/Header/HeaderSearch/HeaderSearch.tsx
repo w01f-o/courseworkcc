@@ -28,7 +28,7 @@ const HeaderSearch: FC = (): JSX.Element => {
       <HeaderButton onClick={() => setOpenModal(true)}>
         {searchSvg}
       </HeaderButton>
-      <Modal isOpen={openModal} setOpen={setOpenModal}>
+      <Modal isOpen={openModal} setOpen={clearModal}>
         <div className="header__search-modal">
           <input
             type="text"
@@ -50,6 +50,11 @@ const HeaderSearch: FC = (): JSX.Element => {
                   clearModal={clearModal}
                 />
               ))}
+            {!searchedProducts.length && (
+              <div className="header__search-not-found">
+                По вашему запросу ничего не найдено
+              </div>
+            )}
           </div>
         </div>
       </Modal>

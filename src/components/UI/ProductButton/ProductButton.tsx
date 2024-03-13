@@ -1,15 +1,49 @@
-import { ButtonHTMLAttributes, FC } from "react";
+import { FC, useContext } from "react";
 import "./ProductButton.scss";
+import { minusSvg, plusSvg, basketSvg } from "components/Catalog/svg/svg";
+import { BasketContext } from "context/BasketContext";
 
-const ProductButton: FC<ButtonHTMLAttributes<HTMLButtonElement>> = ({
-  children,
-  ...props
+interface ProductButtonsProps {
+  id: number;
+  name: string;
+  price: number;
+  img: string;
+  altName: string;
+}
+
+const ProductButtons: FC<ProductButtonsProps> = ({
+  id,
+  name,
+  price,
+  altName,
+  img,
 }): JSX.Element => {
-  return (
-    <button className="product-btn" type="button" {...props}>
-      {children}
+  const {
+    getProductIdInbasket,
+    addToBasket,
+    getProductCount,
+    plusOneToBasket,
+    minusOneFromBasket,
+  } = useContext(BasketContext);
+
+  return getProductIdInbasket(id) !== -1 ? (
+    <>
+      <button className="product-btn" onClick={() => minusOneFromBasket(id)}>
+        {minusSvg}
+      </button>
+      <div className="products__item-count">{getProductCount(id)}</div>
+      <button className="product-btn" onClick={() => plusOneToBasket(id)}>
+        {plusSvg}
+      </button>
+    </>
+  ) : (
+    <button
+      className="product-btn"
+      onClick={() => addToBasket({ id, name, price, altName, img })}
+    >
+      {basketSvg}
     </button>
   );
 };
 
-export default ProductButton;
+export default ProductButtons;

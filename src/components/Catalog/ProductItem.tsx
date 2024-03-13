@@ -1,10 +1,8 @@
-import ProductButton from "components/UI/ProductButton/ProductButton";
 import { FC, useContext } from "react";
-import { basketSvg, minusSvg, plusSvg } from "./svg/svg";
 import ReviewsStars from "components/UI/ReviewsStars/ReviewsStars";
-import { BasketContext } from "context/BasketContext";
 import { CatalogContext } from "context/CatalogContext";
 import { Link } from "react-router-dom";
+import ProductButtons from "components/UI/ProductButton/ProductButton";
 
 interface ProductItemProps {
   img: string;
@@ -23,13 +21,6 @@ const ProductItem: FC<ProductItemProps> = ({
   id,
   altName,
 }): JSX.Element => {
-  const {
-    getProductIdInbasket,
-    addToBasket,
-    getProductCount,
-    plusOneToBasket,
-    minusOneFromBasket,
-  } = useContext(BasketContext);
   const { viewMode } = useContext(CatalogContext);
   return (
     <div
@@ -40,29 +31,19 @@ const ProductItem: FC<ProductItemProps> = ({
       <div className="products__item-img-wrapper">
         <img src={img} alt={altName} />
       </div>
-      <Link className="products__item-name" to={`/catalog/${id}`}>
+      <Link className="products__item-name" to={`/catalog/product/${id}`}>
         {name}
       </Link>
       <div className="products__item-price">{price} ₽</div>
       <ReviewsStars evaluation={evaluation} />
       <div className="products__item-buttons">
-        {getProductIdInbasket(id) !== -1 ? (
-          <>
-            <ProductButton onClick={() => minusOneFromBasket(id)}>
-              {minusSvg}
-            </ProductButton>
-            <div className="products__item-count">{getProductCount(id)}</div>
-            <ProductButton onClick={() => plusOneToBasket(id)}>
-              {plusSvg}
-            </ProductButton>
-          </>
-        ) : (
-          <ProductButton
-            onClick={() => addToBasket({ id, name, price, altName, img })}
-          >
-            {basketSvg}
-          </ProductButton>
-        )}
+        <ProductButtons
+          id={id}
+          name={name}
+          price={price}
+          img={img}
+          altName={altName}
+        />
       </div>
     </div>
   );

@@ -18,11 +18,14 @@ const SearchItem: FC<SearchItemProps> = ({
 }): JSX.Element => {
   return (
     <Link
-      to={`/propucts/${id}`}
+      to={`/catalog/product/${id}`}
       className="header__search-item"
       onClick={clearModal}
     >
-      <img src={img} alt="" className="header__search-item-img" />
+      <div className="header__search-item-img-wrapper">
+        <img src={img} alt="" className="header__search-item-img" />
+      </div>
+
       <div className="header__search-item-name">{name}</div>
       <div className="header__search-item-price">{price} ₽</div>
     </Link>
