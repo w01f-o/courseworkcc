@@ -122,6 +122,7 @@
           left: 0.5rem;
           height: 100%;
           transition: 0.2s;
+          pointer-events: none;
 
           svg {
             transform: scale(1);
@@ -137,10 +138,7 @@
           background: transparent;
           @include secondary-font;
 
-          &:not(:placeholder-shown) {
-          }
-
-          &:focus + label {
+          @mixin focusInput {
             transform: translate(-1.5rem, -1.5rem);
             transition: 0.2s;
             p {
@@ -153,6 +151,14 @@
               transition: 0.2s;
             }
           }
+
+          &:not(:placeholder-shown) + label {
+            @include focusInput;
+          }
+
+          &:focus + label {
+            @include focusInput;
+          }
         }
       }
 
@@ -160,7 +166,7 @@
         @include secondary-font;
         border: 1px solid $black;
         border-radius: 40px;
-        padding: 0.5rem 0;
+        padding: 0.7rem 0;
         width: 100%;
         background: $black;
         transition: 0.2s;

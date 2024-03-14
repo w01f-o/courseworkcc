@@ -30,7 +30,12 @@ import g502big3 from "./assets/img/g502big3.png";
 import g502big4 from "./assets/img/g502big4.png";
 import g502big5 from "./assets/img/g502big5.png";
 import g603 from "./assets/img/g603.png";
+import g603big from "./assets/img/g603big.png";
 import gpro from "./assets/img/gpro.png";
+import gproBig from "./assets/img/gproBig.png";
+import gproBig2 from "./assets/img/gproBig2.png";
+import gproBig3 from "./assets/img/gproBig3.png";
+import gproBig4 from "./assets/img/gproBig4.png";
 
 export const products: IProduct[] = [
   {
@@ -318,7 +323,7 @@ export const products: IProduct[] = [
     manufacturer: "logitech",
     altName: "logitechG603lightspeed",
     imgSmall: g603,
-    imgBig: ["", "", ""],
+    imgBig: [g603big],
     description:
       "Мышь беспроводная Logitech G603 LIGHTSPEED – модель с расширенным функционалом и лаконичным серо-черным цветом корпуса, обеспечивающая максимум комфорта при повседневной работе за компьютером. ",
     price: 6199,
@@ -372,7 +377,7 @@ export const products: IProduct[] = [
     manufacturer: "logitech",
     altName: "logitechGPro",
     imgSmall: gpro,
-    imgBig: ["", "", ""],
+    imgBig: [gproBig, gproBig2, gproBig3, gproBig4],
     description:
       "Мышь Logitech G PRO Wireless [910-005272] с возможностью проводного и беспроводного соединения является универсальным решением для геймеров. ",
     price: 9999,

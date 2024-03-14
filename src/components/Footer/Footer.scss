@@ -15,4 +15,10 @@
     @include flex(center, flex-end);
     gap: 3rem;
   }
+
+  .nav {
+    &__link::before {
+      content: none;
+    }
+  }
 }
