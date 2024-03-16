@@ -2,7 +2,7 @@ import HeaderButton from "components/UI/HeaderButton/HeaderButton";
 import { FC, useMemo, useState } from "react";
 import { searchSvg } from "../svg/svg";
 import Modal from "components/UI/Modal/Modal";
-import { products } from "../../../data/products";
+import { productsList } from "../../../data/products";
 import { IProduct } from "types/productTypes";
 import SearchItem from "./SearchItem";
 
@@ -11,7 +11,7 @@ const HeaderSearch: FC = (): JSX.Element => {
   const [inputValue, setInputValue] = useState<string>("");
 
   const searchedProducts = useMemo(() => {
-    return products.filter(
+    return productsList.filter(
       (product: IProduct) =>
         product.name.toLowerCase().includes(inputValue.toLowerCase()) ||
         product.altName.toLowerCase().includes(inputValue.toLowerCase())

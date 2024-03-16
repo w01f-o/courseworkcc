@@ -1,12 +1,11 @@
 import { Col, Row } from "components/Layout/Layout";
-import { products } from "../../data/products";
 import { IProduct } from "types/productTypes";
 import ProductItem from "./ProductItem";
 import { CatalogContext } from "context/CatalogContext";
 import { useContext } from "react";
 
 const Products = () => {
-  const { viewMode } = useContext(CatalogContext);
+  const { viewMode, products } = useContext(CatalogContext);
   return (
     <Row className="catalog__products-row">
       {products.map((product: IProduct) => (

@@ -9,7 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import { IProduct } from "types/productTypes";
 import { getCountArray } from "utils/getCountArray";
-import { products } from "../../data/products";
+import { productsList } from "../../data/products";
 import NotFoundPage from "../../pages/NotFoundPage";
 import "./Product.scss";
 import ProductSpecifications from "./ProductSpecifications";
@@ -24,7 +24,7 @@ const Product: FC = () => {
   const { id } = useParams();
   const product: IProduct | undefined = useMemo(() => {
     if (id) {
-      return products.find((product: IProduct) => product.id === +id);
+      return productsList.find((product: IProduct) => product.id === +id);
     }
 
     return undefined;

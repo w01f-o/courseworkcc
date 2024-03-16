@@ -1,0 +1,9 @@
+@use "styles/utils/index" as *;
+
+.custom-select {
+  border: none;
+  background: none;
+
+  @include secondary-font;
+  font-family: $fontFamily;
+}

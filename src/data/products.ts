@@ -37,7 +37,7 @@ import gproBig2 from "./assets/img/gproBig2.png";
 import gproBig3 from "./assets/img/gproBig3.png";
 import gproBig4 from "./assets/img/gproBig4.png";
 
-export const products: IProduct[] = [
+export const productsList: IProduct[] = [
   {
     id: 1,
     name: "Мышь беспроводная Logitech G PRO X SUPERLIGHT",
@@ -373,7 +373,7 @@ export const products: IProduct[] = [
   },
   {
     id: 7,
-    name: "Мышь беспроводная/проводная Logitech G PRO Wireless",
+    name: "Мышь беспроводная Logitech G PRO Wireless",
     manufacturer: "logitech",
     altName: "logitechGPro",
     imgSmall: gpro,
