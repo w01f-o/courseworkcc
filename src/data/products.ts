@@ -379,7 +379,7 @@ export const productsList: IProduct[] = [
     imgSmall: gpro,
     imgBig: [gproBig, gproBig2, gproBig3, gproBig4],
     description:
-      "Мышь Logitech G PRO Wireless [910-005272] с возможностью проводного и беспроводного соединения является универсальным решением для геймеров. ",
+      "Мышь Logitech G PRO Wireless с возможностью проводного и беспроводного соединения является универсальным решением для геймеров. ",
     price: 9999,
     specifications: {
       physicalSpecifications: {
@@ -396,6 +396,168 @@ export const productsList: IProduct[] = [
         encoder: "Неизвестно",
         type: "Беспроводная/проводная",
         batteryLife: 60,
+      },
+    },
+    reviews: [
+      {
+        id: 1,
+        author: "Михаил Иванов",
+        body: "Отличная мышь, удобно лежит в руке, легкая, точная. Возможность использовать как беспроводную, так и проводную - большой плюс. Рекомендую!",
+        evaluation: 5,
+      },
+      {
+        id: 2,
+        author: "Анна Петрова",
+        body: "Мышь G PRO Wireless - лучшее, что я пробовала. Удобная, точная, отличное качество сборки. Использую как для игр, так и для работы за компьютером.",
+        evaluation: 5,
+      },
+      {
+        id: 3,
+        author: "Павел Сидоров",
+        body: "Отличная мышь, я доволен покупкой. Возможность использовать как проводную, так и беспроводную - это очень удобно. Рекомендую всем!",
+        evaluation: 5,
+      },
+      {
+        id: 4,
+        author: "Елена Иванова",
+        body: "Мышь Logitech G PRO Wireless превзошла мои ожидания. Удобная, точная, отлично лежит в руке. Очень довольна покупкой.",
+        evaluation: 5,
+      },
+    ],
+  },
+  {
+    id: 8,
+    name: "Мышь беспроводная VGN Dragonfly F1 Pro",
+    manufacturer: "vgn",
+    altName: "vgnDragonflyF1",
+    imgSmall: gpro,
+    imgBig: [gproBig, gproBig2, gproBig3, gproBig4],
+    description:
+      "Мышь беспроводная VGN Dragonfly F1 Pro – обеспечивает максимум комфорта при повседневной работе за компьютером. ",
+    price: 4999,
+    specifications: {
+      physicalSpecifications: {
+        length: 121.2,
+        width: 63.5,
+        height: 37.6,
+        weight: 55,
+      },
+      technicalSpecifications: {
+        sensor: "PAW 3395",
+        maxDpi: 26000,
+        pollingFrequency: 4000,
+        microswitches: "Kailh Black Gold Mamba",
+        encoder: "Kailh GE2.0 Encoder/TTC Silver Wheel",
+        type: "Беспроводная",
+        batteryLife: 65,
+      },
+    },
+    reviews: [
+      {
+        id: 1,
+        author: "Михаил Иванов",
+        body: "Отличная мышь, удобно лежит в руке, легкая, точная. Возможность использовать как беспроводную, так и проводную - большой плюс. Рекомендую!",
+        evaluation: 5,
+      },
+      {
+        id: 2,
+        author: "Анна Петрова",
+        body: "Мышь G PRO Wireless - лучшее, что я пробовала. Удобная, точная, отличное качество сборки. Использую как для игр, так и для работы за компьютером.",
+        evaluation: 5,
+      },
+      {
+        id: 3,
+        author: "Павел Сидоров",
+        body: "Отличная мышь, я доволен покупкой. Возможность использовать как проводную, так и беспроводную - это очень удобно. Рекомендую всем!",
+        evaluation: 5,
+      },
+      {
+        id: 4,
+        author: "Елена Иванова",
+        body: "Мышь Logitech G PRO Wireless превзошла мои ожидания. Удобная, точная, отлично лежит в руке. Очень довольна покупкой.",
+        evaluation: 5,
+      },
+    ],
+  },
+  {
+    id: 9,
+    name: "Мышь беспроводная VGN Dragonfly F1 Moba",
+    manufacturer: "vgn",
+    altName: "vgnDragonflyF1Moba",
+    imgSmall: gpro,
+    imgBig: [gproBig, gproBig2, gproBig3, gproBig4],
+    description:
+      "Мышь беспроводная VGN Dragonfly F1 Moba – обеспечивает максимум комфорта при повседневной работе за компьютером. ",
+    price: 4999,
+    specifications: {
+      physicalSpecifications: {
+        length: 121.2,
+        width: 63.5,
+        height: 37.6,
+        weight: 55,
+      },
+      technicalSpecifications: {
+        sensor: "PAW 3395",
+        maxDpi: 26000,
+        pollingFrequency: 4000,
+        microswitches: "Huanuo Iceberry Pink Dot",
+        encoder: "Kailh GE2.0 Encoder/TTC Silver Wheel",
+        type: "Беспроводная",
+        batteryLife: 130,
+      },
+    },
+    reviews: [
+      {
+        id: 1,
+        author: "Михаил Иванов",
+        body: "Отличная мышь, удобно лежит в руке, легкая, точная. Возможность использовать как беспроводную, так и проводную - большой плюс. Рекомендую!",
+        evaluation: 5,
+      },
+      {
+        id: 2,
+        author: "Анна Петрова",
+        body: "Мышь G PRO Wireless - лучшее, что я пробовала. Удобная, точная, отличное качество сборки. Использую как для игр, так и для работы за компьютером.",
+        evaluation: 5,
+      },
+      {
+        id: 3,
+        author: "Павел Сидоров",
+        body: "Отличная мышь, я доволен покупкой. Возможность использовать как проводную, так и беспроводную - это очень удобно. Рекомендую всем!",
+        evaluation: 5,
+      },
+      {
+        id: 4,
+        author: "Елена Иванова",
+        body: "Мышь Logitech G PRO Wireless превзошла мои ожидания. Удобная, точная, отлично лежит в руке. Очень довольна покупкой.",
+        evaluation: 5,
+      },
+    ],
+  },
+  {
+    id: 10,
+    name: "Мышь беспроводная Razer Viper Ultimate",
+    manufacturer: "razer",
+    altName: "razerViperUltimate",
+    imgSmall: gpro,
+    imgBig: [gproBig, gproBig2, gproBig3, gproBig4],
+    description:
+      "Забудьте об обычном и получите неоспоримое преимущество с Razer Viper Ultimate — беспроводной мышью, созданной для побед. Спроектированная, чтобы стать настоящим продолжением геймера, эта смертоносная хищница оснащена нашей самой передовой технологией и готова выпустить свои клыки на соревнованиях.",
+    price: 7499,
+    specifications: {
+      physicalSpecifications: {
+        length: 126.7,
+        width: 66.2,
+        height: 37.8,
+        weight: 74,
+      },
+      technicalSpecifications: {
+        sensor: "Focus+",
+        maxDpi: 20000,
+        pollingFrequency: 1000,
+        microswitches: "Razer",
+        encoder: "Неизвестно",
+        type: "Беспроводная",
+        batteryLife: 70,
       },
     },
     reviews: [
