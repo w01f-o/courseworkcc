@@ -1,4 +1,6 @@
-export const starSvg = (
+import {ReactNode} from "react";
+
+export const starSvg: ReactNode = (
   <svg
     width="15"
     height="14"
@@ -13,7 +15,7 @@ export const starSvg = (
   </svg>
 );
 
-export const unActiveStarSvg = (
+export const unActiveStarSvg: ReactNode = (
   <svg
     width="15"
     height="14"

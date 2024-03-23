@@ -1,11 +1,11 @@
-import { FC } from "react";
+import {FC, ReactNode} from "react";
 import "./PrimarySection.scss";
 import { Col, Container, Row } from "components/Layout/Layout";
 
 interface PrimarySectionProps {
   title: string;
   text: string;
-  children?: React.ReactNode;
+  children?: ReactNode;
 }
 
 const PrimarySection: FC<PrimarySectionProps> = ({ title, text, children }) => {

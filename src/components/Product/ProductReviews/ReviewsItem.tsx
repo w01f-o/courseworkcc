@@ -12,12 +12,12 @@ const ReviewsItem: FC<ReviewsItemProps> = ({
   author,
   evaluation,
   body,
-}): JSX.Element => {
+}) => {
   const starsCountArray = useMemo(() => {
     return getCountArray(evaluation);
   }, [evaluation]);
 
-  const unactiveStarsCountArray = useMemo(() => {
+  const unActiveStarsCountArray = useMemo(() => {
     return getCountArray(5 - evaluation);
   }, [evaluation]);
   return (
@@ -28,7 +28,7 @@ const ReviewsItem: FC<ReviewsItemProps> = ({
           {starsCountArray.map((_item, index) => (
             <span key={index}>{starSvg}</span>
           ))}
-          {unactiveStarsCountArray.map((_item, index) => (
+          {unActiveStarsCountArray.map((_item, index) => (
             <span key={index}>{unActiveStarSvg}</span>
           ))}
         </div>

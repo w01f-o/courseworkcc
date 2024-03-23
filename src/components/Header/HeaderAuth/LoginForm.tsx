@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { emailSvg, passwordSvg } from "./svg/svg";
 
-const LoginForm: FC = (): JSX.Element => {
+const LoginForm: FC = () => {
   return (
     <form className="header__auth-form" onSubmit={e => e.preventDefault()}>
       <div className="header__auth-form-row">

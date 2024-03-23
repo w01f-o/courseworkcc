@@ -6,7 +6,7 @@ import { FC } from "react";
 import "../components/Catalog/Catalog.scss";
 import CatalogContextProvider from "context/CatalogContext";
 
-const CatalogPage: FC = (): JSX.Element => {
+const CatalogPage: FC = () => {
   return (
     <CatalogContextProvider>
       <Container>

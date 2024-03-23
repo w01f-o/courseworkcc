@@ -1,4 +1,6 @@
-export const socialSvg: JSX.Element[] = [
+import {ReactNode} from "react";
+
+export const socialSvg: ReactNode[] = [
   <svg
     width="35"
     height="35"

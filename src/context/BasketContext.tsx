@@ -1,5 +1,5 @@
 import { useLocalStorage } from "hooks/useLocalStorage";
-import { FC, createContext, useEffect, useState } from "react";
+import {FC, createContext, useEffect, useState, ReactNode} from "react";
 import { IBasketProduct } from "types/productTypes";
 
 type basketFunc = (productId: number) => void;
@@ -10,7 +10,7 @@ interface IBasketContext {
   plusOneToBasket: basketFunc;
   minusOneFromBasket: basketFunc;
   removeFromBasket: basketFunc;
-  getProductIdInbasket: (productId: number) => number;
+  getProductIdInBasket: (productId: number) => number;
   basketTotalCount: number;
   getProductCount: (productId: number) => number;
 }
@@ -20,7 +20,7 @@ export const BasketContext = createContext<IBasketContext>(
 );
 
 interface BasketContextProvider {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 const BasketContextProvider: FC<BasketContextProvider> = ({ children }) => {
@@ -50,7 +50,7 @@ const BasketContextProvider: FC<BasketContextProvider> = ({ children }) => {
   };
 
   const minusOneFromBasket = (productId: number) => {
-    if (basket[getProductIdInbasket(productId)].count === 1) {
+    if (basket[getProductIdInBasket(productId)].count === 1) {
       removeFromBasket(productId);
     } else {
       setBasket(
@@ -69,11 +69,11 @@ const BasketContextProvider: FC<BasketContextProvider> = ({ children }) => {
     setBasket(basket.filter(product => product.id !== productId));
   };
 
-  const getProductIdInbasket = (productId: number) =>
+  const getProductIdInBasket = (productId: number) =>
     basket.findIndex(product => product.id === productId);
 
   const getProductCount = (productId: number) =>
-    basket[getProductIdInbasket(productId)].count as number;
+    basket[getProductIdInBasket(productId)].count as number;
 
   const value: IBasketContext = {
     basket,
@@ -81,7 +81,7 @@ const BasketContextProvider: FC<BasketContextProvider> = ({ children }) => {
     plusOneToBasket,
     minusOneFromBasket,
     removeFromBasket,
-    getProductIdInbasket,
+    getProductIdInBasket,
     basketTotalCount,
     getProductCount,
   };

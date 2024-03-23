@@ -6,7 +6,7 @@ interface ReviewsStarsProps {
   evaluation: number[];
 }
 
-const ReviewsStars: FC<ReviewsStarsProps> = ({ evaluation }): JSX.Element => {
+const ReviewsStars: FC<ReviewsStarsProps> = ({ evaluation }) => {
   const averageEvaluation = useMemo(() => {
     return Math.round(
       evaluation.reduce((acc, item) => acc + item, 0) / evaluation.length

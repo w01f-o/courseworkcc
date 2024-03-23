@@ -1,9 +1,9 @@
-import { FC, useEffect, useRef } from "react";
+import { FC } from "react";
 import mousePng from "./img/mouse.png";
 import { Col, Container, Row } from "components/Layout/Layout";
 import "./PromoSection.scss";
 
-const PromoSection: FC = (): JSX.Element => {
+const PromoSection: FC = () => {
   return (
     <section className="promo">
       <Container>

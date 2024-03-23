@@ -8,7 +8,7 @@ import IRoute from "types/routesType";
 import BasketContextProvider from "context/BasketContext";
 import ScrollToTop from "utils/ScrollToTop";
 
-const App: FC = (): JSX.Element => {
+const App: FC = () => {
   return (
     <>
       <BasketContextProvider>
@@ -20,7 +20,7 @@ const App: FC = (): JSX.Element => {
               <Route
                 path={route.path}
                 element={route.element}
-                key={route.key}
+                key={route.name}
               />
             ))}
           </Routes>

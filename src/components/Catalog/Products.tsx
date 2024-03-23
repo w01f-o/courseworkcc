@@ -2,9 +2,9 @@ import { Col, Row } from "components/Layout/Layout";
 import { IProduct } from "types/productTypes";
 import ProductItem from "./ProductItem";
 import { CatalogContext } from "context/CatalogContext";
-import { useContext } from "react";
+import {FC, useContext} from "react";
 
-const Products = () => {
+const Products: FC = () => {
   const { viewMode, products } = useContext(CatalogContext);
   return (
     <Row className="catalog__products-row">

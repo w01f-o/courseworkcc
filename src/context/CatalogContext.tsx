@@ -1,5 +1,5 @@
 import { useLocalStorage } from "hooks/useLocalStorage";
-import { Dispatch, FC, SetStateAction, createContext, useState } from "react";
+import {Dispatch, FC, SetStateAction, createContext, useState, ReactNode} from "react";
 import { productsList } from "../data/products";
 import { IProduct } from "types/productTypes";
 
@@ -13,12 +13,12 @@ interface ICatalogContext {
 export const CatalogContext = createContext({} as ICatalogContext);
 
 interface CatalogContextProviderProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 const CatalogContextProvider: FC<CatalogContextProviderProps> = ({
   children,
-}): JSX.Element => {
+}) => {
   const [viewMode, setViewMode] = useLocalStorage<number>("catalogViewMode", 4);
   const [products, setProducts] = useState<IProduct[]>(productsList);
 

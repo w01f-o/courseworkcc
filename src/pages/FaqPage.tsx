@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-const FaqPage: FC = (): JSX.Element => {
+const FaqPage: FC = () => {
   return <></>;
 };
 

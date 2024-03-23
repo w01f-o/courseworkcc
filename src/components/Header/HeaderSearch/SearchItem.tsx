@@ -15,7 +15,7 @@ const SearchItem: FC<SearchItemProps> = ({
   img,
   price,
   clearModal,
-}): JSX.Element => {
+}) => {
   return (
     <Link
       to={`/catalog/product/${id}`}

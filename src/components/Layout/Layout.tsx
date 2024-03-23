@@ -4,7 +4,7 @@ export const Container: FC<HTMLAttributes<HTMLDivElement>> = ({
   children,
   className,
   ...props
-}): JSX.Element => {
+}) => {
   return (
     <div className={`container${className ? ` ${className}` : ""}`} {...props}>
       {children}
@@ -16,7 +16,7 @@ export const Row: FC<HTMLAttributes<HTMLDivElement>> = ({
   children,
   className,
   ...props
-}): JSX.Element => {
+}) => {
   return (
     <div className={`row${className ? ` ${className}` : ""}`} {...props}>
       {children}
@@ -43,7 +43,7 @@ export const Col: FC<ColProps> = ({
   children,
   className,
   ...props
-}): JSX.Element => {
+}) => {
   const classNameArr: string = [
     `${xxl ? `col-xxl-${xxl}` : ""}`,
     `${xl ? `col-xl-${xl}` : ""}`,

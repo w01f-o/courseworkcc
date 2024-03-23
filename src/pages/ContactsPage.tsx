@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-const ContactsPage: FC = (): JSX.Element => {
+const ContactsPage: FC = () => {
   return <></>;
 };
 

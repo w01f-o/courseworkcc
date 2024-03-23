@@ -1,7 +1,7 @@
 import { Container, Row } from "components/Layout/Layout";
 import { FC } from "react";
 
-const NotFoundPage: FC = (): JSX.Element => {
+const NotFoundPage: FC = () => {
   return (
     <Container>
       <Row>

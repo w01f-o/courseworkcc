@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-const CatalogFilter: FC = (): JSX.Element => {
+const CatalogFilter: FC = () => {
   return <div className="catalog__filter"></div>;
 };
 

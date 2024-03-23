@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-const BasketPage: FC = (): JSX.Element => {
+const BasketPage: FC = ()=> {
   return <></>;
 };
 

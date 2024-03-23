@@ -17,16 +17,16 @@ const ProductButtons: FC<ProductButtonsProps> = ({
   price,
   altName,
   img,
-}): JSX.Element => {
+}) => {
   const {
-    getProductIdInbasket,
+    getProductIdInBasket,
     addToBasket,
     getProductCount,
     plusOneToBasket,
     minusOneFromBasket,
   } = useContext(BasketContext);
 
-  return getProductIdInbasket(id) !== -1 ? (
+  return getProductIdInBasket(id) !== -1 ? (
     <>
       <button className="product-btn" onClick={() => minusOneFromBasket(id)}>
         {minusSvg}

@@ -1,7 +1,8 @@
+import {ReactNode} from "react";
+
 interface IRoute {
-  key: number;
   path: string;
-  element: JSX.Element;
+  element: ReactNode;
   name: string;
   inNavBar: boolean;
 }

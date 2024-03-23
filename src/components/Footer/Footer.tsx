@@ -4,7 +4,7 @@ import NavBar from "components/NavBar/NavBar";
 import { Col } from "components/Layout/Layout";
 import { socialSvg } from "./svg/svg";
 
-const Footer: FC = (): JSX.Element => {
+const Footer: FC = () => {
   return (
     <footer className="footer">
       <div className="container">

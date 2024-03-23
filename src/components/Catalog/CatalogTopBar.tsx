@@ -4,7 +4,7 @@ import { cellsSvg, rowsSvg } from "./svg/svg";
 import { CatalogContext } from "context/CatalogContext";
 import CustomSelect from "components/UI/CustomSelect/CustomSelect";
 
-const CatalogTopBar: FC = (): JSX.Element => {
+const CatalogTopBar: FC = () => {
   const { viewMode, setViewMode, setProducts, products } =
     useContext(CatalogContext);
   const [selectedSort, setSelectedSort] = useState<string>("name");

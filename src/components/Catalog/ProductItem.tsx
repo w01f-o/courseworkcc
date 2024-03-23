@@ -20,7 +20,7 @@ const ProductItem: FC<ProductItemProps> = ({
   price,
   id,
   altName,
-}): JSX.Element => {
+}) => {
   const { viewMode } = useContext(CatalogContext);
   return (
     <div

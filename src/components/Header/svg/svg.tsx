@@ -1,4 +1,6 @@
-export const searchSvg: JSX.Element = (
+import {ReactNode} from "react";
+
+export const searchSvg: ReactNode = (
   <svg
     width="25"
     height="25"
@@ -23,7 +25,7 @@ export const searchSvg: JSX.Element = (
   </svg>
 );
 
-export const basketSvg: JSX.Element = (
+export const basketSvg: ReactNode = (
   <svg
     width="24"
     height="24"
@@ -64,7 +66,7 @@ export const basketSvg: JSX.Element = (
   </svg>
 );
 
-export const loginSvg: JSX.Element = (
+export const loginSvg: ReactNode = (
   <svg
     width="24"
     height="24"

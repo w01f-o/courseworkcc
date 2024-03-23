@@ -8,7 +8,7 @@ import HeaderSearch from "./HeaderSearch/HeaderSearch";
 import { basketSvg } from "./svg/svg";
 import { NavLink } from "react-router-dom";
 
-const Header: FC = (): JSX.Element => {
+const Header: FC = () => {
   return (
     <header className="header">
       <Container>

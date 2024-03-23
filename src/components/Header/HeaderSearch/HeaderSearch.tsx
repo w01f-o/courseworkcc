@@ -6,7 +6,7 @@ import { productsList } from "../../../data/products";
 import { IProduct } from "types/productTypes";
 import SearchItem from "./SearchItem";
 
-const HeaderSearch: FC = (): JSX.Element => {
+const HeaderSearch: FC = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [inputValue, setInputValue] = useState<string>("");
 

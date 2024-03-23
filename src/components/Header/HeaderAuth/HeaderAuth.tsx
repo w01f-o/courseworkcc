@@ -10,7 +10,7 @@ enum AuthModeEnum {
   register,
 }
 
-const HeaderAuth: FC = (): JSX.Element => {
+const HeaderAuth: FC = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [authMode, setAuthMode] = useState<AuthModeEnum>(AuthModeEnum.logIn);
 

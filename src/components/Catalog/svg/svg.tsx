@@ -1,4 +1,6 @@
-export const basketSvg = (
+import {ReactNode} from "react";
+
+export const basketSvg: ReactNode = (
   <svg
     width="24"
     height="24"
@@ -54,7 +56,7 @@ export const basketSvg = (
   </svg>
 );
 
-export const plusSvg = (
+export const plusSvg: ReactNode = (
   <svg
     width="15"
     height="15"
@@ -74,7 +76,7 @@ export const plusSvg = (
   </svg>
 );
 
-export const minusSvg = (
+export const minusSvg: ReactNode = (
   <svg
     width="15"
     height="3"
@@ -86,7 +88,7 @@ export const minusSvg = (
   </svg>
 );
 
-export const cellsSvg = (
+export const cellsSvg: ReactNode = (
   <svg
     width="18"
     height="18"
@@ -137,7 +139,7 @@ export const cellsSvg = (
   </svg>
 );
 
-export const rowsSvg = (
+export const rowsSvg: ReactNode = (
   <svg
     width="18"
     height="18"
