@@ -1,19 +1,16 @@
 import { Col, Row } from "components/Layout/Layout";
-import { FC, useContext, useState } from "react";
+import { FC, useContext } from "react";
 import { cellsSvg, rowsSvg } from "./svg/svg";
 import { CatalogContext } from "context/CatalogContext";
 import CustomSelect from "components/UI/CustomSelect/CustomSelect";
 
 const CatalogTopBar: FC = () => {
-  const { viewMode, setViewMode, setProducts, products } =
+  const { viewMode, setViewMode, setSortedProducts, sortedProducts } =
     useContext(CatalogContext);
-  const [selectedSort, setSelectedSort] = useState<string>("name");
 
   const changeSelect = (sort: string) => {
-    setSelectedSort(sort);
-
-    setProducts(
-      [...products].sort((a, b) => {
+    setSortedProducts(
+      [...sortedProducts].sort((a, b) => {
         if (sort === "name") {
           return String(a[sort]).localeCompare(String(b[sort]));
         } else if (sort === "priceUp") {
@@ -21,7 +18,7 @@ const CatalogTopBar: FC = () => {
         } else {
           return b["price"] - a["price"];
         }
-      })
+      }),
     );
   };
 
@@ -37,7 +34,6 @@ const CatalogTopBar: FC = () => {
                 { name: "цене (возрастанию)", value: "priceUp" },
                 { name: "цене (убыванию)", value: "priceDown" },
               ]}
-              value={selectedSort}
               onChange={changeSelect}
             />
           </div>

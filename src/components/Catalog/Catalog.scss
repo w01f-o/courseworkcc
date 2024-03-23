@@ -6,6 +6,13 @@
   }
 
   &__products {
+    &-not-enought {
+      width: 100%;
+      margin-top: 3rem;
+      text-align: center;
+      @include title-font;
+    }
+
     &__item {
       display: grid;
       grid-template-areas:
@@ -55,10 +62,43 @@
   }
 
   &__filter {
-    height: 300px;
     margin-right: 1rem;
     border-radius: 25px;
     background: $white-40;
+
+    &-reset {
+      display: grid;
+      place-items: center;
+
+      position: fixed;
+      bottom: 3rem;
+      right: 3rem;
+
+      width: 3rem;
+      height: 3rem;
+
+      border: 2px solid $black;
+      border-radius: 50%;
+      background: $white-40;
+
+      &.filter-enter {
+        opacity: 0;
+      }
+
+      &.filter-enter-active {
+        opacity: 1;
+        transition: opacity 200ms;
+      }
+
+      &.filter-exit {
+        opacity: 1;
+      }
+
+      &.filter-exit-active {
+        opacity: 0;
+        transition: opacity 200ms;
+      }
+    }
   }
 
   &__topbar {
@@ -86,6 +126,11 @@
           }
         }
       }
+    }
+
+    &-sort {
+      display: flex;
+      gap: 0.8rem;
     }
   }
 }

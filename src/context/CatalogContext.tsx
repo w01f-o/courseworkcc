@@ -1,13 +1,33 @@
 import { useLocalStorage } from "hooks/useLocalStorage";
-import {Dispatch, FC, SetStateAction, createContext, useState, ReactNode} from "react";
+import {
+  Dispatch,
+  FC,
+  SetStateAction,
+  createContext,
+  useState,
+  ReactNode,
+  useMemo,
+} from "react";
 import { productsList } from "../data/products";
-import { IProduct } from "types/productTypes";
+import { IProduct, ITechnicalSpecifications } from "types/productTypes";
+
+export interface IFilterOption {
+  filter: keyof ITechnicalSpecifications;
+  value: string;
+}
 
 interface ICatalogContext {
   viewMode: number;
   setViewMode: Dispatch<SetStateAction<number>>;
   products: IProduct[];
   setProducts: Dispatch<SetStateAction<IProduct[]>>;
+  sortedProducts: IProduct[];
+  setSortedProducts: Dispatch<SetStateAction<IProduct[]>>;
+  filterProducts: IFilterOption[];
+  setFilterProducts: Dispatch<SetStateAction<IFilterOption[]>>;
+  sortedAndFilteredAndPricedProduct: IProduct[];
+  sortByPriceValue: { from: number; to: number };
+  setSortByPriceValue: Dispatch<SetStateAction<{ from: number; to: number }>>;
 }
 
 export const CatalogContext = createContext({} as ICatalogContext);
@@ -21,12 +41,50 @@ const CatalogContextProvider: FC<CatalogContextProviderProps> = ({
 }) => {
   const [viewMode, setViewMode] = useLocalStorage<number>("catalogViewMode", 4);
   const [products, setProducts] = useState<IProduct[]>(productsList);
+  const [sortedProducts, setSortedProducts] = useState<IProduct[]>(products);
+  const [filterProducts, setFilterProducts] = useState<IFilterOption[]>([]);
+
+  const [sortByPriceValue, setSortByPriceValue] = useState<{
+    from: number;
+    to: number;
+  }>({
+    from: 0,
+    to: Math.max(...products.map((product: IProduct) => product.price)),
+  });
+
+  const sortedAndFilteredProducts = useMemo(() => {
+    let filteredProducts = [...sortedProducts];
+
+    filterProducts.forEach(({ filter, value }) => {
+      filteredProducts = filteredProducts.filter((product) => {
+        return product.specifications.technicalSpecifications[filter] === value;
+      });
+    });
+
+    return filteredProducts;
+  }, [filterProducts, sortedProducts]);
+
+  const sortedAndFilteredAndPricedProduct = useMemo(() => {
+    return sortedAndFilteredProducts.filter((product) => {
+      return (
+        product.price >= sortByPriceValue.from &&
+        product.price <= sortByPriceValue.to
+      );
+    });
+  }, [sortByPriceValue.from, sortByPriceValue.to, sortedAndFilteredProducts]);
 
   const value: ICatalogContext = {
     viewMode,
     setViewMode,
     products,
     setProducts,
+    sortedProducts,
+    setSortedProducts,
+    filterProducts,
+    setFilterProducts,
+    sortedAndFilteredAndPricedProduct,
+    sortByPriceValue,
+    setSortByPriceValue,
   };
   return (
     <CatalogContext.Provider value={value}>{children}</CatalogContext.Provider>

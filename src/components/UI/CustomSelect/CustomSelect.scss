@@ -1,9 +1,78 @@
 @use "styles/utils/index" as *;
 
 .custom-select {
-  border: none;
-  background: none;
-
   @include secondary-font;
   font-family: $fontFamily;
+
+  &__current {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &__svg {
+    transform: translateY(2px);
+    transition: 0.2s;
+
+    &.open {
+      transform: scaleY(-1);
+      transition: 0.2s;
+    }
+  }
+
+  &__collapse {
+    position: absolute;
+
+    margin-top: 0.4rem;
+
+    border: 1px solid $black-40;
+    border-radius: 0.5rem;
+    overflow: hidden;
+
+    background: #e6e6e6;
+
+    &.select-enter {
+      transform: translateY(-5px);
+      opacity: 0;
+    }
+
+    &.select-enter-active {
+      transform: translateY(0);
+      opacity: 1;
+      transition: 100ms;
+    }
+
+    &.select-exit {
+      opacity: 1;
+    }
+
+    &.select-exit-active {
+      opacity: 0;
+      transition: 100ms;
+    }
+  }
+
+  &__option,
+  &__default {
+    position: relative;
+
+    padding: 0.5rem;
+    cursor: pointer;
+
+    &:hover::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      background: #000;
+      opacity: 0.1;
+    }
+  }
 }

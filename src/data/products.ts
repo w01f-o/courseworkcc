@@ -41,7 +41,6 @@ export const productsList: IProduct[] = [
   {
     id: 1,
     name: "Мышь беспроводная Logitech G PRO X SUPERLIGHT",
-    manufacturer: "logitech",
     altName: "logitechGproXSuperlight",
     imgSmall: gprox,
     imgBig: [gproxBig, gproxBig2, gproxBig3, gproxBig4, gproxBig5],
@@ -63,6 +62,7 @@ export const productsList: IProduct[] = [
         encoder: "TTC White",
         type: "Беспроводная",
         batteryLife: 70,
+        manufacturer: "logitech",
       },
     },
     reviews: [
@@ -95,7 +95,6 @@ export const productsList: IProduct[] = [
   {
     id: 2,
     name: "Мышь проводная Logitech G102 LIGHTSYNC",
-    manufacturer: "logitech",
     altName: "logitechG102lightsync",
     imgSmall: g102,
     imgBig: [g102big, g102big2, g102big3, g102big4],
@@ -116,6 +115,7 @@ export const productsList: IProduct[] = [
         microswitches: "Omron",
         encoder: "Неизвестно",
         type: "Проводная",
+        manufacturer: "logitech",
       },
     },
     reviews: [
@@ -148,7 +148,6 @@ export const productsList: IProduct[] = [
   {
     id: 3,
     name: "Мышь беспроводная Logitech G304 LIGHTSPEED",
-    manufacturer: "logitech",
     altName: "logitechG304lightspeed",
     imgSmall: g304,
     imgBig: [g304big, g304big2, g304big3, g304big4, g304big5, g304big6],
@@ -170,6 +169,7 @@ export const productsList: IProduct[] = [
         encoder: "Неизвестно",
         type: "Беспроводная",
         batteryLife: 80,
+        manufacturer: "logitech",
       },
     },
     reviews: [
@@ -208,7 +208,6 @@ export const productsList: IProduct[] = [
   {
     id: 4,
     name: "Мышь проводная Logitech G502 HERO",
-    manufacturer: "logitech",
     altName: "logitechG502hero",
     imgSmall: g502,
     imgBig: [g502big, g502big2, g502big3, g502big4, g502big5],
@@ -229,6 +228,7 @@ export const productsList: IProduct[] = [
         microswitches: "Omron",
         encoder: "Неизвестно",
         type: "Проводная",
+        manufacturer: "logitech",
       },
     },
     reviews: [
@@ -261,7 +261,6 @@ export const productsList: IProduct[] = [
   {
     id: 5,
     name: "Мышь проводная Logitech G403 HERO",
-    manufacturer: "logitech",
     altName: "logitechG403hero",
     imgSmall: g403,
     imgBig: [g403big, g403big2, g403big3, g403big4, g403big5],
@@ -282,6 +281,7 @@ export const productsList: IProduct[] = [
         microswitches: "Kailh TTC Omron",
         encoder: "TTC White",
         type: "Проводная",
+        manufacturer: "logitech",
       },
     },
     reviews: [
@@ -320,7 +320,6 @@ export const productsList: IProduct[] = [
   {
     id: 6,
     name: "Мышь беспроводная Logitech G603 LIGHTSPEED",
-    manufacturer: "logitech",
     altName: "logitechG603lightspeed",
     imgSmall: g603,
     imgBig: [g603big],
@@ -342,6 +341,7 @@ export const productsList: IProduct[] = [
         encoder: "Неизвестно",
         type: "Беспроводная",
         batteryLife: 160,
+        manufacturer: "logitech",
       },
     },
     reviews: [
@@ -374,7 +374,6 @@ export const productsList: IProduct[] = [
   {
     id: 7,
     name: "Мышь беспроводная Logitech G PRO Wireless",
-    manufacturer: "logitech",
     altName: "logitechGPro",
     imgSmall: gpro,
     imgBig: [gproBig, gproBig2, gproBig3, gproBig4],
@@ -396,6 +395,7 @@ export const productsList: IProduct[] = [
         encoder: "Неизвестно",
         type: "Беспроводная/проводная",
         batteryLife: 60,
+        manufacturer: "logitech",
       },
     },
     reviews: [
@@ -428,7 +428,6 @@ export const productsList: IProduct[] = [
   {
     id: 8,
     name: "Мышь беспроводная VGN Dragonfly F1 Pro",
-    manufacturer: "vgn",
     altName: "vgnDragonflyF1",
     imgSmall: gpro,
     imgBig: [gproBig, gproBig2, gproBig3, gproBig4],
@@ -450,6 +449,7 @@ export const productsList: IProduct[] = [
         encoder: "Kailh GE2.0 Encoder/TTC Silver Wheel",
         type: "Беспроводная",
         batteryLife: 65,
+        manufacturer: "vgn",
       },
     },
     reviews: [
@@ -482,7 +482,6 @@ export const productsList: IProduct[] = [
   {
     id: 9,
     name: "Мышь беспроводная VGN Dragonfly F1 Moba",
-    manufacturer: "vgn",
     altName: "vgnDragonflyF1Moba",
     imgSmall: gpro,
     imgBig: [gproBig, gproBig2, gproBig3, gproBig4],
@@ -504,6 +503,7 @@ export const productsList: IProduct[] = [
         encoder: "Kailh GE2.0 Encoder/TTC Silver Wheel",
         type: "Беспроводная",
         batteryLife: 130,
+        manufacturer: "vgn",
       },
     },
     reviews: [
@@ -536,7 +536,6 @@ export const productsList: IProduct[] = [
   {
     id: 10,
     name: "Мышь беспроводная Razer Viper Ultimate",
-    manufacturer: "razer",
     altName: "razerViperUltimate",
     imgSmall: gpro,
     imgBig: [gproBig, gproBig2, gproBig3, gproBig4],
@@ -558,6 +557,7 @@ export const productsList: IProduct[] = [
         encoder: "Неизвестно",
         type: "Беспроводная",
         batteryLife: 70,
+        manufacturer: "razer",
       },
     },
     reviews: [

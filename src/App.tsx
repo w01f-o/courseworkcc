@@ -2,6 +2,7 @@ import Footer from "components/Footer/Footer";
 import Header from "components/Header/Header";
 import { FC } from "react";
 import "styles/App.scss";
+import "styles/_global.scss";
 import { Route, Routes } from "react-router-dom";
 import { routes } from "./routes/routes";
 import IRoute from "types/routesType";

@@ -1,0 +1,93 @@
+@use "styles/utils/index" as *;
+
+.filter {
+  padding: 1.5rem;
+
+  &__price {
+    display: flex;
+  }
+
+  &__label {
+    @include flex();
+    gap: 0.7rem;
+    @include secondary-font;
+  }
+
+  &__input {
+    width: 55%;
+    padding-block: 0.2rem;
+    border: 1px solid $black;
+    border-radius: 0.2rem;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__title {
+    @include secondary-font;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    margin-left: -0.3rem;
+  }
+
+  &__item {
+    display: flex;
+    gap: 0.5rem;
+    @include secondary-font;
+    cursor: pointer;
+
+    label {
+      cursor: pointer;
+
+      &:first-letter {
+        text-transform: uppercase;
+      }
+    }
+
+    &-checkbox {
+      position: relative;
+      visibility: hidden;
+
+      & + label {
+        position: relative;
+
+        &::after,
+        &::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+
+        &::before {
+          left: -25px;
+          z-index: 90;
+
+          width: 18px;
+          height: 18px;
+
+          border-radius: 0.2rem;
+          border: 2px solid $black;
+        }
+
+        &::after {
+          left: -21px;
+
+          width: 10px;
+          height: 10px;
+
+          border-radius: 0.1rem;
+        }
+      }
+
+      &:checked + label {
+        &::after {
+          background: $black;
+        }
+      }
+    }
+  }
+}
