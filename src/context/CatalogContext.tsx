@@ -47,7 +47,7 @@ const CatalogContextProvider: FC<CatalogContextProviderProps> = ({
 
   const maxPrice = useMemo(() => {
     return Math.max(...products.map((product: IProduct) => product.price));
-  }, []);
+  }, [products]);
 
   const [sortByPriceValue, setSortByPriceValue] = useState<{
     from: number;
