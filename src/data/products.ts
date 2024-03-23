@@ -36,6 +36,12 @@ import gproBig from "./assets/img/gproBig.png";
 import gproBig2 from "./assets/img/gproBig2.png";
 import gproBig3 from "./assets/img/gproBig3.png";
 import gproBig4 from "./assets/img/gproBig4.png";
+import viper from "./assets/img/viper.png";
+import viperbig from "./assets/img/viperbig.png";
+import viperbig2 from "./assets/img/viperbig2.png";
+import vgnpro from "./assets/img/vgnpro.png";
+import vgnprobig from "./assets/img/vgnprobig.png";
+import vgnprobig2 from "./assets/img/vgnprobig2.png";
 
 export const productsList: IProduct[] = [
   {
@@ -122,26 +128,26 @@ export const productsList: IProduct[] = [
       {
         id: 1,
         author: "Максим Смирнов",
-        body: "Отличная проводная мышь для игр. Удобная форма и высокая чувствительность позволяют эффективно управлять курсором в играх любого жанра.",
+        body: "Ужасная мышь",
         evaluation: 2,
       },
       {
         id: 2,
         author: "Анна Иванова",
-        body: "Качественная и недорогая мышь. Проводное соединение обеспечивает стабильную и быструю передачу данных, что важно при игре в онлайн-игры.",
+        body: "Срывает сенсор, дабликлик через месяц, поломалось колёсико - не рекомендую",
         evaluation: 2,
       },
       {
         id: 3,
         author: "Елизар Семёнов",
         body: "Мышь понравилась своей простотой и надежностью. Отличный выбор для тех, кто предпочитает проводные устройства и не нуждается в лишних функциях.",
-        evaluation: 4,
+        evaluation: 5,
       },
       {
         id: 4,
         author: "Елена Сидорова",
-        body: "У меня эта мышь уже несколько месяцев, и я не очень довольна ею. Работает не стабильно, есть проблемы с подключением, форма удобная для долгих игровых сессий.",
-        evaluation: 3,
+        body: "У меня эта мышь уже несколько месяцев, и я не очень довольна ею. Работает не стабильно, есть проблемы с подключением, форма не удобная для долгих игровых сессий.",
+        evaluation: 2,
       },
     ],
   },
@@ -429,8 +435,8 @@ export const productsList: IProduct[] = [
     id: 8,
     name: "Мышь беспроводная VGN Dragonfly F1 Pro",
     altName: "vgnDragonflyF1",
-    imgSmall: gpro,
-    imgBig: [gproBig, gproBig2, gproBig3, gproBig4],
+    imgSmall: vgnpro,
+    imgBig: [vgnprobig, vgnprobig2],
     description:
       "Мышь беспроводная VGN Dragonfly F1 Pro – обеспечивает максимум комфорта при повседневной работе за компьютером. ",
     price: 4999,
@@ -483,8 +489,8 @@ export const productsList: IProduct[] = [
     id: 9,
     name: "Мышь беспроводная VGN Dragonfly F1 Moba",
     altName: "vgnDragonflyF1Moba",
-    imgSmall: gpro,
-    imgBig: [gproBig, gproBig2, gproBig3, gproBig4],
+    imgSmall: vgnpro,
+    imgBig: [vgnprobig, vgnprobig2],
     description:
       "Мышь беспроводная VGN Dragonfly F1 Moba – обеспечивает максимум комфорта при повседневной работе за компьютером. ",
     price: 4999,
@@ -537,8 +543,8 @@ export const productsList: IProduct[] = [
     id: 10,
     name: "Мышь беспроводная Razer Viper Ultimate",
     altName: "razerViperUltimate",
-    imgSmall: gpro,
-    imgBig: [gproBig, gproBig2, gproBig3, gproBig4],
+    imgSmall: viper,
+    imgBig: [viperbig, viperbig2],
     description:
       "Забудьте об обычном и получите неоспоримое преимущество с Razer Viper Ultimate — беспроводной мышью, созданной для побед. Спроектированная, чтобы стать настоящим продолжением геймера, эта смертоносная хищница оснащена нашей самой передовой технологией и готова выпустить свои клыки на соревнованиях.",
     price: 7499,

@@ -1,0 +1,35 @@
+@use "styles/utils/index" as *;
+
+.faq {
+  &__row {
+    padding-top: 1.5rem;
+  }
+
+  &__title {
+    padding-bottom: 1.5rem;
+    @include title-font;
+    text-align: center;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    padding-inline: 8rem;
+  }
+
+  &__item {
+    text-align: center;
+
+    &-title {
+      padding-bottom: 0.5rem;
+      @include primary-font;
+    }
+
+    &-text {
+      @include secondary-font;
+      line-height: 120%;
+    }
+  }
+}

@@ -12,6 +12,7 @@
     position: relative;
     cursor: pointer;
     user-select: none;
+    color: $black-40;
   }
 
   &__svg {
@@ -33,7 +34,7 @@
     border-radius: 0.5rem;
     overflow: hidden;
 
-    background: #e6e6e6;
+    background: $white;
 
     &.select-enter {
       transform: translateY(-5px);
