@@ -3,7 +3,7 @@ import { CatalogContext } from "context/CatalogContext.tsx";
 import { IProduct } from "types/productTypes.ts";
 
 const FilterByPrice: FC = () => {
-  const { sortByPriceValue, setSortByPriceValue, products } =
+  const { sortByPriceValue, setSortByPriceValue, products, maxPrice } =
     useContext(CatalogContext);
 
   const handleChangeFromPrice = (e: ChangeEvent<HTMLInputElement>) => {
@@ -31,6 +31,7 @@ const FilterByPrice: FC = () => {
               name="priceFrom"
               className="filter__input"
               min={0}
+              max={maxPrice}
               value={sortByPriceValue.from === 0 ? "" : sortByPriceValue.from}
               placeholder="0"
               onChange={handleChangeFromPrice}
@@ -43,11 +44,9 @@ const FilterByPrice: FC = () => {
               name="priceTo"
               className="filter__input"
               min={0}
+              max={maxPrice}
               value={
-                sortByPriceValue.to ===
-                Math.max(...products.map((product: IProduct) => product.price))
-                  ? ""
-                  : sortByPriceValue.to
+                sortByPriceValue.to === maxPrice ? "" : sortByPriceValue.to
               }
               placeholder={String(sortByPriceValue.to)}
               onChange={handleChangeToPrice}

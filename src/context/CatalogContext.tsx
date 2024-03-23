@@ -28,6 +28,7 @@ interface ICatalogContext {
   sortedAndFilteredAndPricedProduct: IProduct[];
   sortByPriceValue: { from: number; to: number };
   setSortByPriceValue: Dispatch<SetStateAction<{ from: number; to: number }>>;
+  maxPrice: number;
 }
 
 export const CatalogContext = createContext({} as ICatalogContext);
@@ -44,12 +45,16 @@ const CatalogContextProvider: FC<CatalogContextProviderProps> = ({
   const [sortedProducts, setSortedProducts] = useState<IProduct[]>(products);
   const [filterProducts, setFilterProducts] = useState<IFilterOption[]>([]);
 
+  const maxPrice = useMemo(() => {
+    return Math.max(...products.map((product: IProduct) => product.price));
+  }, []);
+
   const [sortByPriceValue, setSortByPriceValue] = useState<{
     from: number;
     to: number;
   }>({
     from: 0,
-    to: Math.max(...products.map((product: IProduct) => product.price)),
+    to: maxPrice,
   });
 
   const sortedAndFilteredProducts = useMemo(() => {
@@ -85,6 +90,7 @@ const CatalogContextProvider: FC<CatalogContextProviderProps> = ({
     sortedAndFilteredAndPricedProduct,
     sortByPriceValue,
     setSortByPriceValue,
+    maxPrice,
   };
   return (
     <CatalogContext.Provider value={value}>{children}</CatalogContext.Provider>

@@ -1,16 +1,15 @@
 import { FC, useContext } from "react";
 import { CatalogContext } from "context/CatalogContext.tsx";
-import { IProduct } from "types/productTypes.ts";
 
 const ResetFilter: FC = () => {
-  const { setFilterProducts, setSortByPriceValue, products } =
+  const { setFilterProducts, setSortByPriceValue, maxPrice } =
     useContext(CatalogContext);
   return (
     <button
       onClick={() => {
         setSortByPriceValue({
           from: 0,
-          to: Math.max(...products.map((product: IProduct) => product.price)),
+          to: maxPrice,
         });
         setFilterProducts([]);
       }}
