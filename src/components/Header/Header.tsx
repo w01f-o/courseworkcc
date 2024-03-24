@@ -7,8 +7,11 @@ import HeaderAuth from "./HeaderAuth/HeaderAuth";
 import HeaderSearch from "./HeaderSearch/HeaderSearch";
 import { basketSvg } from "./svg/svg";
 import { NavLink } from "react-router-dom";
+import { useMatchMedia } from "hooks/useMatchMedia.ts";
 
 const Header: FC = () => {
+  const [isMobile] = useMatchMedia(["(max-width: 768px)"]);
+
   return (
     <header className="header">
       <Container>
@@ -18,20 +21,24 @@ const Header: FC = () => {
               C & C
             </NavLink>
           </Col>
-          <Col xxl={5}>
-            <NavBar />
-          </Col>
-          <Col xxl={3}>
-            <div className="header__btn-wrapper">
-              <HeaderSearch />
-              <NavLink to="/basket" className="header__basket">
-                <HeaderButton>{basketSvg}</HeaderButton>
-              </NavLink>
-            </div>
-          </Col>
-          <Col xxl={2} className="flex-end">
-            <HeaderAuth />
-          </Col>
+          {!isMobile && (
+            <>
+              <Col xxl={5}>
+                <NavBar />
+              </Col>
+              <Col xxl={3}>
+                <div className="header__btn-wrapper">
+                  <HeaderSearch />
+                  <NavLink to="/basket" className="header__basket">
+                    <HeaderButton>{basketSvg}</HeaderButton>
+                  </NavLink>
+                </div>
+              </Col>
+              <Col xxl={2} className="flex-end">
+                <HeaderAuth />
+              </Col>
+            </>
+          )}
         </Row>
       </Container>
     </header>
