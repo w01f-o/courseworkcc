@@ -1,23 +1,24 @@
-import { ChangeEvent, FC, useContext } from "react";
+import {ChangeEvent, FC, useCallback, useContext} from "react";
 import { CatalogContext } from "context/CatalogContext.tsx";
 import { IProduct } from "types/productTypes.ts";
+import {productsList} from "../../../data/products.ts";
 
 const FilterByPrice: FC = () => {
-  const { sortByPriceValue, setSortByPriceValue, products, maxPrice } =
+  const { sortByPriceValue, setSortByPriceValue, maxPrice } =
     useContext(CatalogContext);
 
-  const handleChangeFromPrice = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChangeFromPrice = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value !== "" ? +e.target.value : 0;
     setSortByPriceValue({ ...sortByPriceValue, from: newValue });
-  };
+  }, [setSortByPriceValue, sortByPriceValue]);
 
-  const handleChangeToPrice = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChangeToPrice = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     const newValue =
       e.target.value !== ""
         ? +e.target.value
-        : Math.max(...products.map((product: IProduct) => product.price));
+        : Math.max(...productsList.map((product: IProduct) => product.price));
     setSortByPriceValue({ ...sortByPriceValue, to: newValue });
-  };
+  }, [setSortByPriceValue, sortByPriceValue]);
 
   return (
     <>

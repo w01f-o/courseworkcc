@@ -1,4 +1,4 @@
-import { FC, useMemo } from "react";
+import {FC, memo, useMemo} from "react";
 import { getCountArray } from "utils/getCountArray";
 import { starSvg, unActiveStarSvg } from "./svg/svg";
 
@@ -6,7 +6,7 @@ interface ReviewsStarsProps {
   evaluation: number[];
 }
 
-const ReviewsStars: FC<ReviewsStarsProps> = ({ evaluation }) => {
+const ReviewsStars: FC<ReviewsStarsProps> = memo(({ evaluation }) => {
   const averageEvaluation = useMemo(() => {
     return Math.round(
       evaluation.reduce((acc, item) => acc + item, 0) / evaluation.length
@@ -32,6 +32,6 @@ const ReviewsStars: FC<ReviewsStarsProps> = ({ evaluation }) => {
       ({evaluation.length})
     </div>
   );
-};
+});
 
 export default ReviewsStars;

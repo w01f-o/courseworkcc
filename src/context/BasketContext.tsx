@@ -1,5 +1,5 @@
 import { useLocalStorage } from "hooks/useLocalStorage";
-import {FC, createContext, useEffect, useState, ReactNode} from "react";
+import {FC, createContext, useEffect, useState, ReactNode, useCallback, useMemo} from "react";
 import { IBasketProduct } from "types/productTypes";
 
 type basketFunc = (productId: number) => void;
@@ -33,11 +33,11 @@ const BasketContextProvider: FC<BasketContextProvider> = ({ children }) => {
     );
   }, [basket]);
 
-  const addToBasket = (product: IBasketProduct) => {
+  const addToBasket = useCallback((product: IBasketProduct) => {
     setBasket((prev: IBasketProduct[]) => [...prev, { ...product, count: 1 }]);
-  };
+  }, [setBasket]);
 
-  const plusOneToBasket = (productId: number) => {
+  const plusOneToBasket = useCallback((productId: number) => {
     setBasket(
       basket.map(product => {
         if (product.id === productId && product.count) {
@@ -47,9 +47,16 @@ const BasketContextProvider: FC<BasketContextProvider> = ({ children }) => {
         return product;
       })
     );
-  };
+  }, [basket, setBasket]);
 
-  const minusOneFromBasket = (productId: number) => {
+  const removeFromBasket = useCallback((productId: number): void => {
+    setBasket(basket.filter(product => product.id !== productId));
+  }, [basket, setBasket]);
+
+  const getProductIdInBasket = useCallback((productId: number): number =>
+      basket.findIndex(product => product.id === productId), [basket]);
+  
+  const minusOneFromBasket = useCallback((productId: number): void => {
     if (basket[getProductIdInBasket(productId)].count === 1) {
       removeFromBasket(productId);
     } else {
@@ -63,19 +70,12 @@ const BasketContextProvider: FC<BasketContextProvider> = ({ children }) => {
         })
       );
     }
-  };
+  }, [basket, getProductIdInBasket, removeFromBasket, setBasket]);
+  
+  const getProductCount = useCallback((productId: number) =>
+    basket[getProductIdInBasket(productId)].count as number, [basket, getProductIdInBasket])
 
-  const removeFromBasket = (productId: number) => {
-    setBasket(basket.filter(product => product.id !== productId));
-  };
-
-  const getProductIdInBasket = (productId: number) =>
-    basket.findIndex(product => product.id === productId);
-
-  const getProductCount = (productId: number) =>
-    basket[getProductIdInBasket(productId)].count as number;
-
-  const value: IBasketContext = {
+  const value: IBasketContext = useMemo((): IBasketContext => ({
     basket,
     addToBasket,
     plusOneToBasket,
@@ -84,7 +84,7 @@ const BasketContextProvider: FC<BasketContextProvider> = ({ children }) => {
     getProductIdInBasket,
     basketTotalCount,
     getProductCount,
-  };
+  }), [addToBasket, basket, basketTotalCount, getProductCount, getProductIdInBasket, minusOneFromBasket, plusOneToBasket, removeFromBasket]);
 
   return (
     <BasketContext.Provider value={value}>{children}</BasketContext.Provider>

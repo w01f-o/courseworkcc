@@ -2,9 +2,9 @@ import { Col, Row } from "components/Layout/Layout";
 import { IProduct } from "types/productTypes";
 import ProductItem from "./ProductItem";
 import { CatalogContext } from "context/CatalogContext";
-import { FC, useContext } from "react";
+import {FC, memo, useContext} from "react";
 
-const Products: FC = () => {
+const Products: FC = memo(() => {
   const { viewMode, sortedAndFilteredAndPricedProduct } =
     useContext(CatalogContext);
   return (
@@ -27,6 +27,6 @@ const Products: FC = () => {
       )}
     </Row>
   );
-};
+});
 
 export default Products;

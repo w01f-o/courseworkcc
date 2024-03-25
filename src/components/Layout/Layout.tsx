@@ -1,4 +1,4 @@
-import { FC, HTMLAttributes } from "react";
+import {FC, HTMLAttributes, useMemo} from "react";
 
 export const Container: FC<HTMLAttributes<HTMLDivElement>> = ({
   children,
@@ -44,7 +44,7 @@ export const Col: FC<ColProps> = ({
   className,
   ...props
 }) => {
-  const classNameArr: string = [
+  const classNameArr: string = useMemo(() => [
     `${xxl ? `col-xxl-${xxl}` : ""}`,
     `${xl ? `col-xl-${xl}` : ""}`,
     `${lg ? `col-lg-${lg}` : ""}`,
@@ -52,8 +52,8 @@ export const Col: FC<ColProps> = ({
     `${sm ? `col-sm-${sm}` : ""}`,
     `${xs ? `col-xs-${xs}` : ""}`,
   ]
-    .filter((size: string) => size !== "")
-    .join(" ");
+      .filter((size: string) => size !== "")
+      .join(" "), [lg, md, sm, xl, xs, xxl])
   return (
     <div
       className={`${classNameArr}${className ? ` ${className}` : ""}`}

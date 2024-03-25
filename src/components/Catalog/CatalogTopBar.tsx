@@ -1,5 +1,5 @@
 import { Col, Row } from "components/Layout/Layout";
-import { FC, useContext } from "react";
+import {FC, useCallback, useContext} from "react";
 import { cellsSvg, rowsSvg } from "./svg/svg";
 import { CatalogContext } from "context/CatalogContext";
 import CustomSelect from "components/UI/CustomSelect/CustomSelect";
@@ -8,19 +8,20 @@ const CatalogTopBar: FC = () => {
   const { viewMode, setViewMode, setSortedProducts, sortedProducts } =
     useContext(CatalogContext);
 
-  const changeSelect = (sort: string) => {
+  const changeSelect = useCallback((sort: string) => {
     setSortedProducts(
       [...sortedProducts].sort((a, b) => {
-        if (sort === "name") {
-          return String(a[sort]).localeCompare(String(b[sort]));
-        } else if (sort === "priceUp") {
-          return a["price"] - b["price"];
-        } else {
-          return b["price"] - a["price"];
-        }
+          switch (sort) {
+              case "name":
+                  return String(a[sort]).localeCompare(String(b[sort]));
+              case "priceUp":
+                  return a["price"] - b["price"];
+              default:
+                  return b["price"] - a["price"];
+          }
       }),
     );
-  };
+  }, [setSortedProducts, sortedProducts]);
 
   return (
     <Row>

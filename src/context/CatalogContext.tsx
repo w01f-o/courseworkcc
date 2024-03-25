@@ -19,8 +19,8 @@ export interface IFilterOption {
 interface ICatalogContext {
   viewMode: number;
   setViewMode: Dispatch<SetStateAction<number>>;
-  products: IProduct[];
-  setProducts: Dispatch<SetStateAction<IProduct[]>>;
+  // products: IProduct[];
+  // setProducts: Dispatch<SetStateAction<IProduct[]>>;
   sortedProducts: IProduct[];
   setSortedProducts: Dispatch<SetStateAction<IProduct[]>>;
   filterProducts: IFilterOption[];
@@ -41,13 +41,13 @@ const CatalogContextProvider: FC<CatalogContextProviderProps> = ({
   children,
 }) => {
   const [viewMode, setViewMode] = useLocalStorage<number>("catalogViewMode", 4);
-  const [products, setProducts] = useState<IProduct[]>(productsList);
-  const [sortedProducts, setSortedProducts] = useState<IProduct[]>(products);
+  // const [products, setProducts] = useState<IProduct[]>(productsList);
+  const [sortedProducts, setSortedProducts] = useState<IProduct[]>(productsList);
   const [filterProducts, setFilterProducts] = useState<IFilterOption[]>([]);
 
   const maxPrice = useMemo(() => {
-    return Math.max(...products.map((product: IProduct) => product.price));
-  }, [products]);
+    return Math.max(...productsList.map((product: IProduct) => product.price));
+  }, []);
 
   const [sortByPriceValue, setSortByPriceValue] = useState<{
     from: number;
@@ -78,11 +78,9 @@ const CatalogContextProvider: FC<CatalogContextProviderProps> = ({
     });
   }, [sortByPriceValue.from, sortByPriceValue.to, sortedAndFilteredProducts]);
 
-  const value: ICatalogContext = {
+  const value: ICatalogContext = useMemo((): ICatalogContext => ({
     viewMode,
     setViewMode,
-    products,
-    setProducts,
     sortedProducts,
     setSortedProducts,
     filterProducts,
@@ -90,8 +88,8 @@ const CatalogContextProvider: FC<CatalogContextProviderProps> = ({
     sortedAndFilteredAndPricedProduct,
     sortByPriceValue,
     setSortByPriceValue,
-    maxPrice,
-  };
+    maxPrice
+  }), [filterProducts, maxPrice, setViewMode, sortByPriceValue, sortedAndFilteredAndPricedProduct, sortedProducts, viewMode]);
   return (
     <CatalogContext.Provider value={value}>{children}</CatalogContext.Provider>
   );
