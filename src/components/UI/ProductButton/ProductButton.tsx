@@ -31,7 +31,7 @@ const ProductButtons: FC<ProductButtonsProps> = ({
       <button className="product-btn" onClick={() => minusOneFromBasket(id)}>
         {minusSvg}
       </button>
-      <div className="products__item-count">{getProductCount(id)}</div>
+      <div className="product-btn-count">{getProductCount(id)}</div>
       <button className="product-btn" onClick={() => plusOneToBasket(id)}>
         {plusSvg}
       </button>
