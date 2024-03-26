@@ -1,0 +1,60 @@
+@use "styles/utils/index" as *;
+
+.basket {
+  &__title {
+    padding-bottom: 1.7rem;
+    text-align: center;
+    @include title-font;
+  }
+
+  &__row {
+    padding: 1.5rem 0;
+  }
+
+  &__item {
+    @include flex(center, space-between);
+
+    margin-bottom: 1.5rem;
+    padding-right: 3rem;
+    height: 250px;
+    border-radius: 1.563rem;
+    background: $white-40;
+
+    &-buttons {
+      display: flex;
+      gap: 0.7rem;
+
+      height: 40px;
+      padding-left: 2rem;
+    }
+
+    .flex-col {
+      flex-basis: 45%;
+    }
+
+    &-name {
+      @include secondary-font;
+    }
+
+    &-price {
+      padding-top: 0.7rem;
+      @include secondary-font;
+    }
+
+    &-img-wrapper {
+      flex-basis: 30%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+
+  &__empty {
+    @include title-font;
+    font-size: 3.5rem;
+    text-align: center;
+  }
+}

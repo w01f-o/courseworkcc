@@ -6,7 +6,7 @@ export const useMatchMedia = (queries: string[]): boolean[] => {
     mediaQueryLists.map((mql: MediaQueryList) => mql.matches);
 
   const [value, setValue] = useState(getValue);
-
+  console.log(`value`)
   useLayoutEffect(() => {
     const handler = (): void => setValue(getValue);
 

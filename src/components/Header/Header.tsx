@@ -1,7 +1,7 @@
 import { Col, Container, Row } from "components/Layout/Layout";
 import NavBar from "components/NavBar/NavBar";
 import HeaderButton from "components/UI/HeaderButton/HeaderButton";
-import {FC, memo} from "react";
+import { FC, memo } from "react";
 import "./Header.scss";
 import HeaderAuth from "./HeaderAuth/HeaderAuth";
 import HeaderSearch from "./HeaderSearch/HeaderSearch";
@@ -11,7 +11,6 @@ import { useMatchMedia } from "hooks/useMatchMedia.ts";
 
 const Header: FC = memo(() => {
   const [isMobile] = useMatchMedia(["(max-width: 768px)"]);
-
   return (
     <header className="header">
       <Container>
