@@ -13,15 +13,9 @@ const BasketItem: FC<BasketItemProps> = ({ product }) => {
       <div className="basket__item-img-wrapper">
         <img src={product.img} alt={product.altName} />
       </div>
-      <div className="flex-col">
-        <Link
-          className="basket__item-name"
-          to={`/catalog/product/${product.id}`}
-        >
-          {product.name}
-        </Link>
-        <div className="basket__item-price">{product.price} ₽</div>
-      </div>
+      <Link className="basket__item-name" to={`/catalog/product/${product.id}`}>
+        {product.name}
+      </Link>
       <div className="basket__item-buttons">
         <ProductButtons
           id={product.id}
@@ -31,6 +25,7 @@ const BasketItem: FC<BasketItemProps> = ({ product }) => {
           altName={product.altName}
         />
       </div>
+      <div className="basket__item-price">{product.price} ₽</div>
     </div>
   );
 };

@@ -1,9 +1,10 @@
 import { FC } from "react";
 import { emailSvg, passwordSvg } from "./svg/svg";
+import PrimaryButton from "components/UI/PrimaryButton/PrimaryButton.tsx";
 
 const LoginForm: FC = () => {
   return (
-    <form className="header__auth-form" onSubmit={e => e.preventDefault()}>
+    <form className="header__auth-form" onSubmit={(e) => e.preventDefault()}>
       <div className="header__auth-form-row">
         <input type="email" id="email" placeholder=" " />
         <label htmlFor="email">
@@ -18,7 +19,7 @@ const LoginForm: FC = () => {
           <p>Пароль</p>
         </label>
       </div>
-      <button className="header__auth-form-btn">Войти</button>
+      <PrimaryButton className="header__auth-form-btn">Войти</PrimaryButton>
     </form>
   );
 };
