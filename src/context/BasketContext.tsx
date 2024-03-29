@@ -7,6 +7,8 @@ import {
   ReactNode,
   useCallback,
   useMemo,
+  Dispatch,
+  SetStateAction,
 } from "react";
 import { IBasketProduct } from "types/productTypes";
 
@@ -14,6 +16,7 @@ type basketFunc = (productId: number) => void;
 
 interface IBasketContext {
   basket: IBasketProduct[];
+  setBasket: Dispatch<SetStateAction<IBasketProduct[]>>;
   addToBasket: (product: IBasketProduct) => void;
   plusOneToBasket: basketFunc;
   minusOneFromBasket: basketFunc;
@@ -105,11 +108,15 @@ const BasketContextProvider: FC<BasketContextProvider> = ({ children }) => {
     [basket, getProductIdInBasket],
   );
 
-  const promocodes: string[] = useMemo(() => ["CC2024", "qwerty", "CC20"], []);
+  const promocodes: string[] = useMemo(
+    () => ["CC2024", "qwerty", "CC20", "1"],
+    [],
+  );
 
   const value: IBasketContext = useMemo(
     (): IBasketContext => ({
       basket,
+      setBasket,
       addToBasket,
       plusOneToBasket,
       minusOneFromBasket,
@@ -122,6 +129,7 @@ const BasketContextProvider: FC<BasketContextProvider> = ({ children }) => {
     [
       addToBasket,
       basket,
+      setBasket,
       basketTotalCount,
       getProductCount,
       getProductIdInBasket,

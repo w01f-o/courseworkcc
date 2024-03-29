@@ -1,0 +1,35 @@
+@use "styles/utils/index" as *;
+
+.alert {
+  @include flex(center, space-between);
+  gap: 0.5rem;
+  position: fixed;
+
+  right: 2rem;
+  bottom: 2rem;
+
+  border-radius: 0.5rem;
+  padding: 1rem 2.2rem;
+
+  background: $white;
+
+  &.alert-enter {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  &.alert-enter-active {
+    opacity: 1;
+    transition: 300ms;
+    transform: translateX(0);
+  }
+
+  &.alert-exit {
+    opacity: 1;
+  }
+
+  &.alert-exit-active {
+    opacity: 0;
+    transition: 300ms;
+  }
+}
