@@ -40,6 +40,10 @@ const Product: FC = () => {
     CurrentTabEnum.specifications
   );
 
+  const handleClick = (tab: CurrentTabEnum) => (): void => {
+    setCurrentTab(tab)
+  }
+
   return (
     <Container>
       <Row className="product__row">
@@ -98,7 +102,7 @@ const Product: FC = () => {
                       ? " active"
                       : ""
                   }`}
-                  onClick={() => setCurrentTab(CurrentTabEnum.specifications)}
+                  onClick={handleClick(CurrentTabEnum.specifications)}
                 >
                   Характеристики
                 </button>
@@ -106,7 +110,7 @@ const Product: FC = () => {
                   className={`product__tabs-item${
                     currentTab === CurrentTabEnum.reviews ? " active" : ""
                   }`}
-                  onClick={() => setCurrentTab(CurrentTabEnum.reviews)}
+                  onClick={handleClick(CurrentTabEnum.reviews)}
                 >
                   Отзывы
                 </button>

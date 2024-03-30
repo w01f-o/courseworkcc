@@ -7,6 +7,7 @@ import {FC, memo, useContext} from "react";
 const Products: FC = memo(() => {
   const { viewMode, sortedAndFilteredAndPricedProduct } =
     useContext(CatalogContext);
+    
   return (
     <Row className="catalog__products-row">
       {sortedAndFilteredAndPricedProduct.length ? (

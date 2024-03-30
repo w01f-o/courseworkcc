@@ -12,7 +12,7 @@ const NavBar: FC = () => {
                     if (route.inNavBar) {
                         return (
                             <li className="nav__item" key={route.name}>
-                                <NavLink to={route.path} className="nav__link">
+                                <NavLink to={route.path} className="nav__link"  >
                                     {route.name}
                                 </NavLink>
                             </li>
