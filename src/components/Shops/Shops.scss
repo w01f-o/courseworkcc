@@ -1,0 +1,51 @@
+@use "styles/utils/index" as *;
+
+.shops {
+  &__row {
+    padding-top: 1.5rem;
+    justify-content: center;
+
+    .left-item {
+    }
+  }
+
+  &__title {
+    padding-bottom: 1.5rem;
+    @include title-font;
+    text-align: center;
+  }
+
+  &__info {
+    display: grid;
+    grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+    grid-gap: 1.5rem 1rem;
+  }
+
+  &__item {
+    &:nth-child(odd) {
+      padding-left: 30%;
+    }
+
+    &-address {
+      @include primary-font;
+      font-weight: 600;
+    }
+
+    &-time {
+      white-space: pre-line;
+
+      @include primary-font;
+      font-weight: 400;
+      line-height: 130%;
+    }
+  }
+
+  &__map {
+    border-radius: 0.9375rem;
+
+    width: 100%;
+    height: 522px;
+
+    margin: 2.5625rem 0;
+  }
+}

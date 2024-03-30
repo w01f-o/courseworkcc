@@ -52,10 +52,12 @@ const ProductSpecifications: FC<ProductSpecificationsProps> = ({
         <li className="product__specification-item">
           Тип: {specification.technicalSpecifications.type}
         </li>
-        <li className="product__specification-item">
-          Время автономной работы:{" "}
-          {specification.technicalSpecifications.batteryLife} ч
-        </li>
+        {specification.technicalSpecifications.type === "Беспроводная" && (
+          <li className="product__specification-item">
+            Время автономной работы:{" "}
+            {specification.technicalSpecifications.batteryLife} ч
+          </li>
+        )}
       </ul>
     </div>
   );

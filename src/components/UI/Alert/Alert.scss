@@ -32,4 +32,8 @@
     opacity: 0;
     transition: 300ms;
   }
+
+  &__content {
+    white-space: pre-line;
+  }
 }

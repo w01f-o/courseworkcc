@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { emailSvg, passwordSvg } from "./svg/svg";
+import { emailSvg, fioSvg, passwordSvg, phoneSvg } from "./svg/svg";
 import PrimaryButton from "components/UI/PrimaryButton/PrimaryButton.tsx";
 import { SubmitHandler, useForm } from "react-hook-form";
 
@@ -27,7 +27,7 @@ const RegisterForm: FC = () => {
           placeholder=" "
         />
         <label htmlFor="fio">
-          {emailSvg}
+          {fioSvg}
           <p>ФИО</p>
         </label>
       </div>
@@ -49,7 +49,7 @@ const RegisterForm: FC = () => {
           placeholder=" "
         />
         <label htmlFor="phoneNumber">
-          {passwordSvg}
+          {phoneSvg}
           <p>Номер телефона</p>
         </label>
       </div>

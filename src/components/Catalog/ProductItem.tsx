@@ -3,6 +3,8 @@ import ReviewsStars from "components/UI/ReviewsStars/ReviewsStars";
 import { CatalogContext } from "context/CatalogContext";
 import { Link } from "react-router-dom";
 import ProductButtons from "components/UI/ProductButton/ProductButton";
+import { ViewModeEnum } from "../../enums/UIEnums.ts";
+import classNames from "classnames";
 
 interface ProductItemProps {
   img: string;
@@ -22,11 +24,12 @@ const ProductItem: FC<ProductItemProps> = ({
   altName,
 }) => {
   const { viewMode } = useContext(CatalogContext);
+
   return (
     <div
-      className={`catalog__products__item${
-        viewMode === 12 ? " rows-mode" : ""
-      }`}
+      className={classNames("catalog__products__item", {
+        ["rows-mode"]: viewMode === ViewModeEnum.rows,
+      })}
     >
       <div className="products__item-img-wrapper">
         <img src={img} alt={altName} />
