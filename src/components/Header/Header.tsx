@@ -1,7 +1,7 @@
 import { Col, Container, Row } from "components/Layout/Layout";
 import NavBar from "components/NavBar/NavBar";
 import HeaderButton from "components/UI/HeaderButton/HeaderButton";
-import { FC, memo } from "react";
+import { FC } from "react";
 import "./Header.scss";
 import HeaderAuth from "./HeaderAuth/HeaderAuth";
 import HeaderSearch from "./HeaderSearch/HeaderSearch";
@@ -9,8 +9,9 @@ import { basketSvg } from "./svg/svg";
 import { NavLink } from "react-router-dom";
 import { useMatchMedia } from "hooks/useMatchMedia.ts";
 
-const Header: FC = memo(() => {
+const Header: FC = () => {
   const [isMobile] = useMatchMedia(["(max-width: 768px)"]);
+
   return (
     <header className="header">
       <Container>
@@ -42,6 +43,6 @@ const Header: FC = memo(() => {
       </Container>
     </header>
   );
-});
+};
 
 export default Header;

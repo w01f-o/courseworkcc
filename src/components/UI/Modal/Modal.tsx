@@ -1,6 +1,7 @@
-import {Dispatch, FC, ReactNode, SetStateAction} from "react";
+import { Dispatch, FC, ReactNode, SetStateAction } from "react";
 import "./Modal.scss";
 import { CSSTransition } from "react-transition-group";
+import { MouseEvent } from "react";
 
 interface ModalProps {
   isOpen: boolean;
@@ -14,9 +15,7 @@ const Modal: FC<ModalProps> = ({ isOpen, setOpen, children }) => {
       <div className="modal" onMouseDown={() => setOpen(false)}>
         <div
           className="modal__content"
-          onMouseDown={(e: React.MouseEvent<HTMLDivElement>) =>
-            e.stopPropagation()
-          }
+          onMouseDown={(e: MouseEvent<HTMLDivElement>) => e.stopPropagation()}
         >
           {children}
         </div>

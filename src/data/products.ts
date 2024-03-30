@@ -493,7 +493,7 @@ export const productsList: IProduct[] = [
     imgBig: [vgnprobig, vgnprobig2],
     description:
       "Мышь беспроводная VGN Dragonfly F1 Moba – обеспечивает максимум комфорта при повседневной работе за компьютером. ",
-    price: 4999,
+    price: 5999,
     specifications: {
       physicalSpecifications: {
         length: 121.2,

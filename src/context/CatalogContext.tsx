@@ -19,8 +19,6 @@ export interface IFilterOption {
 interface ICatalogContext {
   viewMode: number;
   setViewMode: Dispatch<SetStateAction<number>>;
-  // products: IProduct[];
-  // setProducts: Dispatch<SetStateAction<IProduct[]>>;
   sortedProducts: IProduct[];
   setSortedProducts: Dispatch<SetStateAction<IProduct[]>>;
   filterProducts: IFilterOption[];
@@ -41,8 +39,8 @@ const CatalogContextProvider: FC<CatalogContextProviderProps> = ({
   children,
 }) => {
   const [viewMode, setViewMode] = useLocalStorage<number>("catalogViewMode", 4);
-  // const [products, setProducts] = useState<IProduct[]>(productsList);
-  const [sortedProducts, setSortedProducts] = useState<IProduct[]>(productsList);
+  const [sortedProducts, setSortedProducts] =
+    useState<IProduct[]>(productsList);
   const [filterProducts, setFilterProducts] = useState<IFilterOption[]>([]);
 
   const maxPrice = useMemo(() => {
@@ -78,7 +76,7 @@ const CatalogContextProvider: FC<CatalogContextProviderProps> = ({
     });
   }, [sortByPriceValue.from, sortByPriceValue.to, sortedAndFilteredProducts]);
 
-  const value: ICatalogContext = useMemo((): ICatalogContext => ({
+  const value: ICatalogContext = {
     viewMode,
     setViewMode,
     sortedProducts,
@@ -88,8 +86,9 @@ const CatalogContextProvider: FC<CatalogContextProviderProps> = ({
     sortedAndFilteredAndPricedProduct,
     sortByPriceValue,
     setSortByPriceValue,
-    maxPrice
-  }), [filterProducts, maxPrice, setViewMode, sortByPriceValue, sortedAndFilteredAndPricedProduct, sortedProducts, viewMode]);
+    maxPrice,
+  };
+
   return (
     <CatalogContext.Provider value={value}>{children}</CatalogContext.Provider>
   );

@@ -1,5 +1,5 @@
 import "./Alert.scss";
-import { FC, ReactNode, useCallback } from "react";
+import { FC, ReactNode } from "react";
 import { CSSTransition } from "react-transition-group";
 import { AlertType } from "types/UITypes.ts";
 import { errorSvg, successSvg } from "components/UI/Alert/svg/svg.tsx";
@@ -11,7 +11,7 @@ interface AlertProps {
 }
 
 const Alert: FC<AlertProps> = ({ children, isOpen, alertType }) => {
-  const getAlertType = useCallback(() => {
+  const getAlertType = () => {
     switch (alertType) {
       case AlertType.success:
         return successSvg;
@@ -19,7 +19,7 @@ const Alert: FC<AlertProps> = ({ children, isOpen, alertType }) => {
       case AlertType.error:
         return errorSvg;
     }
-  }, [alertType]);
+  };
 
   return (
     <CSSTransition in={isOpen} unmountOnExit timeout={300} classNames="alert">

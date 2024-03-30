@@ -8,11 +8,7 @@ interface ReviewsItemProps {
   body: string;
 }
 
-const ReviewsItem: FC<ReviewsItemProps> = ({
-  author,
-  evaluation,
-  body,
-}) => {
+const ReviewsItem: FC<ReviewsItemProps> = ({ author, evaluation, body }) => {
   const starsCountArray = useMemo(() => {
     return getCountArray(evaluation);
   }, [evaluation]);
@@ -20,6 +16,7 @@ const ReviewsItem: FC<ReviewsItemProps> = ({
   const unActiveStarsCountArray = useMemo(() => {
     return getCountArray(5 - evaluation);
   }, [evaluation]);
+
   return (
     <div className="product__reviews-item">
       <div className="product__reviews-name">

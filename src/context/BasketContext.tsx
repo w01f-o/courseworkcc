@@ -6,7 +6,6 @@ import {
   useState,
   ReactNode,
   useCallback,
-  useMemo,
   Dispatch,
   SetStateAction,
 } from "react";
@@ -34,6 +33,8 @@ export const BasketContext = createContext<IBasketContext>(
 interface BasketContextProvider {
   children: ReactNode;
 }
+
+const promocodes: string[] = ["CC2024", "qwerty", "CC20", "1"];
 
 const BasketContextProvider: FC<BasketContextProvider> = ({ children }) => {
   const [basket, setBasket] = useLocalStorage<IBasketProduct[]>("basket", []);
@@ -108,37 +109,18 @@ const BasketContextProvider: FC<BasketContextProvider> = ({ children }) => {
     [basket, getProductIdInBasket],
   );
 
-  const promocodes: string[] = useMemo(
-    () => ["CC2024", "qwerty", "CC20", "1"],
-    [],
-  );
-
-  const value: IBasketContext = useMemo(
-    (): IBasketContext => ({
-      basket,
-      setBasket,
-      addToBasket,
-      plusOneToBasket,
-      minusOneFromBasket,
-      removeFromBasket,
-      getProductIdInBasket,
-      basketTotalCount,
-      getProductCount,
-      promocodes,
-    }),
-    [
-      addToBasket,
-      basket,
-      setBasket,
-      basketTotalCount,
-      getProductCount,
-      getProductIdInBasket,
-      minusOneFromBasket,
-      plusOneToBasket,
-      removeFromBasket,
-      promocodes,
-    ],
-  );
+  const value: IBasketContext = {
+    basket,
+    setBasket,
+    addToBasket,
+    plusOneToBasket,
+    minusOneFromBasket,
+    removeFromBasket,
+    getProductIdInBasket,
+    basketTotalCount,
+    getProductCount,
+    promocodes,
+  };
 
   return (
     <BasketContext.Provider value={value}>{children}</BasketContext.Provider>
