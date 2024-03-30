@@ -3,6 +3,8 @@ import { FC, useContext } from "react";
 import { cellsSvg, rowsSvg } from "./svg/svg";
 import { CatalogContext } from "context/CatalogContext";
 import CustomSelect from "components/UI/CustomSelect/CustomSelect";
+import classNames from "classnames";
+import { ViewModeEnum } from "../../enums/UIEnums.ts";
 
 const CatalogTopBar: FC = () => {
   const { viewMode, setViewMode, setSortedProducts, sortedProducts } =
@@ -23,6 +25,10 @@ const CatalogTopBar: FC = () => {
     );
   };
 
+  const setViewModeHandler = (mode: ViewModeEnum) => (): void => {
+    setViewMode(mode);
+  };
+
   return (
     <Row>
       <Col xxl={12}>
@@ -40,14 +46,16 @@ const CatalogTopBar: FC = () => {
           </div>
           <div className="catalog__topbar-switcher">
             <span
-              className={`${viewMode === 4 ? "active" : ""}`}
-              onClick={() => setViewMode(4)}
+              className={classNames({
+                active: viewMode === ViewModeEnum.cells,
+              })}
+              onClick={setViewModeHandler(ViewModeEnum.cells)}
             >
               {cellsSvg}
             </span>
             <span
-              className={`${viewMode === 12 ? "active" : ""}`}
-              onClick={() => setViewMode(12)}
+              className={classNames({ active: viewMode === ViewModeEnum.rows })}
+              onClick={setViewModeHandler(ViewModeEnum.rows)}
             >
               {rowsSvg}
             </span>

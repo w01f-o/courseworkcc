@@ -1,40 +1,75 @@
 import { FC } from "react";
 import { emailSvg, passwordSvg } from "./svg/svg";
 import PrimaryButton from "components/UI/PrimaryButton/PrimaryButton.tsx";
+import { SubmitHandler, useForm } from "react-hook-form";
+
+interface RegisterInputs {
+  fio: string;
+  email: string;
+  phoneNumber: string;
+  password: string;
+  repeatPassword: string;
+}
 
 const RegisterForm: FC = () => {
+  const { register, handleSubmit } = useForm<RegisterInputs>();
+
+  const onSubmit: SubmitHandler<RegisterInputs> = (data: RegisterInputs) => {
+    console.log(data);
+  };
+
   return (
-    <form className="header__auth-form" onSubmit={(e) => e.preventDefault()}>
+    <form className="header__auth-form" onSubmit={handleSubmit(onSubmit)}>
       <div className="header__auth-form-row">
-        <input type="text" id="name" placeholder=" " />
-        <label htmlFor="name">
+        <input
+          type="text"
+          {...register("fio", { required: true })}
+          placeholder=" "
+        />
+        <label htmlFor="fio">
           {emailSvg}
           <p>ФИО</p>
         </label>
       </div>
       <div className="header__auth-form-row">
-        <input type="email" id="email" placeholder=" " />
+        <input
+          type="email"
+          {...register("email", { required: true })}
+          placeholder=" "
+        />
         <label htmlFor="email">
           {emailSvg}
           <p>Email</p>
         </label>
       </div>
       <div className="header__auth-form-row">
-        <input type="text" id="phoneNumber" placeholder=" " />
+        <input
+          type="text"
+          {...register("phoneNumber", { required: true })}
+          placeholder=" "
+        />
         <label htmlFor="phoneNumber">
           {passwordSvg}
           <p>Номер телефона</p>
         </label>
       </div>
       <div className="header__auth-form-row">
-        <input type="password" id="password" placeholder=" " />
+        <input
+          type="password"
+          {...register("password", { required: true })}
+          placeholder=" "
+        />
         <label htmlFor="password">
           {passwordSvg}
           <p>Пароль</p>
         </label>
       </div>
       <div className="header__auth-form-row">
-        <input type="password" id="password" placeholder=" " />
+        <input
+          type="password"
+          {...register("repeatPassword", { required: true })}
+          placeholder=" "
+        />
         <label htmlFor="password">
           {passwordSvg}
           <p>Повторите пароль</p>

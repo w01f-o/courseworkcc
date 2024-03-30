@@ -10,6 +10,7 @@ import {
   SetStateAction,
 } from "react";
 import { IBasketProduct } from "types/productTypes";
+import { promocodes } from "../consts/promocodes.ts";
 
 type basketFunc = (productId: number) => void;
 
@@ -33,8 +34,6 @@ export const BasketContext = createContext<IBasketContext>(
 interface BasketContextProvider {
   children: ReactNode;
 }
-
-const promocodes: string[] = ["CC2024", "qwerty", "CC20", "1"];
 
 const BasketContextProvider: FC<BasketContextProvider> = ({ children }) => {
   const [basket, setBasket] = useLocalStorage<IBasketProduct[]>("basket", []);

@@ -1,25 +1,41 @@
 import "./Alert.scss";
-import { FC, ReactNode } from "react";
+import { Dispatch, FC, ReactNode, SetStateAction, useEffect } from "react";
 import { CSSTransition } from "react-transition-group";
-import { AlertType } from "types/UITypes.ts";
+import { AlertTypeEnum } from "../../../enums/UIEnums.ts";
 import { errorSvg, successSvg } from "components/UI/Alert/svg/svg.tsx";
 
 interface AlertProps {
   children: ReactNode;
   isOpen: boolean;
-  alertType: AlertType;
+  setIsOpen: Dispatch<SetStateAction<boolean>>;
+  closeTimeout: number;
+  alertType: AlertTypeEnum;
 }
 
-const Alert: FC<AlertProps> = ({ children, isOpen, alertType }) => {
+const Alert: FC<AlertProps> = ({
+  children,
+  isOpen,
+  alertType,
+  setIsOpen,
+  closeTimeout,
+}) => {
   const getAlertType = () => {
     switch (alertType) {
-      case AlertType.success:
+      case AlertTypeEnum.success:
         return successSvg;
 
-      case AlertType.error:
+      case AlertTypeEnum.error:
         return errorSvg;
     }
   };
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (isOpen) setIsOpen(false);
+    }, closeTimeout);
+
+    return () => clearTimeout(timeout);
+  }, [closeTimeout, isOpen, setIsOpen]);
 
   return (
     <CSSTransition in={isOpen} unmountOnExit timeout={300} classNames="alert">

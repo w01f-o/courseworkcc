@@ -14,6 +14,7 @@ import NotFoundPage from "../../pages/NotFoundPage";
 import "./Product.scss";
 import ProductSpecifications from "./ProductSpecifications";
 import ProductReviews from "./ProductReviews/ProductReviews";
+import classNames from "classnames";
 
 enum CurrentTabEnum {
   specifications,
@@ -37,12 +38,12 @@ const Product: FC = () => {
   }, [product?.imgBig.length]);
 
   const [currentTab, setCurrentTab] = useState<CurrentTabEnum>(
-    CurrentTabEnum.specifications
+    CurrentTabEnum.specifications,
   );
 
   const handleClick = (tab: CurrentTabEnum) => (): void => {
-    setCurrentTab(tab)
-  }
+    setCurrentTab(tab);
+  };
 
   return (
     <Container>
@@ -77,7 +78,7 @@ const Product: FC = () => {
                     {product.description}
                   </div>
                   <ReviewsStars
-                    evaluation={product.reviews.map(item => item.evaluation)}
+                    evaluation={product.reviews.map((item) => item.evaluation)}
                   />
                 </div>
                 <div className="wrapper">
@@ -97,19 +98,17 @@ const Product: FC = () => {
             <Col xxl={12}>
               <div className="product__tabs">
                 <button
-                  className={`product__tabs-item${
-                    currentTab === CurrentTabEnum.specifications
-                      ? " active"
-                      : ""
-                  }`}
+                  className={classNames("product__tabs-item", {
+                    active: currentTab === CurrentTabEnum.specifications,
+                  })}
                   onClick={handleClick(CurrentTabEnum.specifications)}
                 >
                   Характеристики
                 </button>
                 <button
-                  className={`product__tabs-item${
-                    currentTab === CurrentTabEnum.reviews ? " active" : ""
-                  }`}
+                  className={classNames("product__tabs-item", {
+                    active: currentTab === CurrentTabEnum.reviews,
+                  })}
                   onClick={handleClick(CurrentTabEnum.reviews)}
                 >
                   Отзывы

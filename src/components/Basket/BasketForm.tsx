@@ -1,17 +1,9 @@
-import {
-  FC,
-  FormEvent,
-  useContext,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import { FC, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { BasketContext } from "context/BasketContext.tsx";
 import { IBasketProduct } from "types/productTypes.ts";
 import PrimaryButton from "components/UI/PrimaryButton/PrimaryButton.tsx";
 import Alert from "components/UI/Alert/Alert.tsx";
-import { AlertType } from "types/UITypes.ts";
+import { AlertTypeEnum } from "../../enums/UIEnums.ts";
 
 enum promocodeAlertText {
   success = "Промокод применён",
@@ -20,7 +12,7 @@ enum promocodeAlertText {
 }
 
 interface PromocodeState {
-  type: AlertType;
+  type: AlertTypeEnum;
   message: promocodeAlertText;
   isApplied: boolean;
 }
@@ -31,7 +23,7 @@ const BasketForm: FC = () => {
   const [basketTotalPrice, setBasketTotalPrice] = useState<number>(0);
   const [openAlert, setOpenAlert] = useState<boolean>(false);
   const [promocodeState, setPromocodeState] = useState<PromocodeState>({
-    type: AlertType.error,
+    type: AlertTypeEnum.error,
     message: promocodeAlertText.error,
     isApplied: false,
   });
@@ -50,14 +42,6 @@ const BasketForm: FC = () => {
     );
   }, [basket]);
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setOpenAlert(false);
-    }, 2000);
-
-    return () => clearTimeout(timeout);
-  }, [openAlert]);
-
   const promocodeInputRef = useRef<HTMLInputElement>(null);
 
   const promocodeClickHandler = () => {
@@ -69,20 +53,20 @@ const BasketForm: FC = () => {
         !promocodeState.isApplied
       ) {
         setPromocodeState({
-          type: AlertType.success,
+          type: AlertTypeEnum.success,
           message: promocodeAlertText.success,
           isApplied: true,
         });
         setBasketTotalPrice((prev) => prev - 100);
       } else if (promocodeState.isApplied) {
         setPromocodeState({
-          type: AlertType.error,
+          type: AlertTypeEnum.error,
           message: promocodeAlertText.warning,
           isApplied: true,
         });
       } else {
         setPromocodeState({
-          type: AlertType.error,
+          type: AlertTypeEnum.error,
           message: promocodeAlertText.error,
           isApplied: false,
         });
@@ -91,13 +75,7 @@ const BasketForm: FC = () => {
   };
 
   return (
-    <form
-      className="basket__form"
-      onSubmit={(e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        setBasket([]);
-      }}
-    >
+    <div className="basket__form">
       <div className="basket__form-content">
         <h5 className="basket__form-title">Итого:</h5>
         <div className="basket__form-price">
@@ -116,12 +94,19 @@ const BasketForm: FC = () => {
         <PrimaryButton type="button" onClick={promocodeClickHandler}>
           Применить
         </PrimaryButton>
-        <Alert isOpen={openAlert} alertType={promocodeState.type}>
+        <Alert
+          isOpen={openAlert}
+          alertType={promocodeState.type}
+          setIsOpen={setOpenAlert}
+          closeTimeout={2000}
+        >
           {promocodeState.message}
         </Alert>
       </div>
-      <PrimaryButton className="basket__form-btn">Оформить заказ</PrimaryButton>
-    </form>
+      <PrimaryButton className="basket__form-btn" onClick={() => setBasket([])}>
+        Оформить заказ
+      </PrimaryButton>
+    </div>
   );
 };
 

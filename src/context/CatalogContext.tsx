@@ -10,6 +10,7 @@ import {
 } from "react";
 import { productsList } from "../data/products";
 import { IProduct, ITechnicalSpecifications } from "types/productTypes";
+import { ViewModeEnum } from "../enums/UIEnums.ts";
 
 export interface IFilterOption {
   filter: keyof ITechnicalSpecifications;
@@ -17,8 +18,8 @@ export interface IFilterOption {
 }
 
 interface ICatalogContext {
-  viewMode: number;
-  setViewMode: Dispatch<SetStateAction<number>>;
+  viewMode: ViewModeEnum;
+  setViewMode: Dispatch<SetStateAction<ViewModeEnum>>;
   sortedProducts: IProduct[];
   setSortedProducts: Dispatch<SetStateAction<IProduct[]>>;
   filterProducts: IFilterOption[];
@@ -38,7 +39,10 @@ interface CatalogContextProviderProps {
 const CatalogContextProvider: FC<CatalogContextProviderProps> = ({
   children,
 }) => {
-  const [viewMode, setViewMode] = useLocalStorage<number>("catalogViewMode", 4);
+  const [viewMode, setViewMode] = useLocalStorage<ViewModeEnum>(
+    "catalogViewMode",
+    ViewModeEnum.cells,
+  );
   const [sortedProducts, setSortedProducts] =
     useState<IProduct[]>(productsList);
   const [filterProducts, setFilterProducts] = useState<IFilterOption[]>([]);
