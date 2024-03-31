@@ -34,11 +34,13 @@ body {
   @media screen and (min-width: 960px) {
     margin-left: calc(100vw - 100%);
   }
-} 
+}
 
 #root {
   display: flex;
   flex-direction: column;
+
+  overflow-x: hidden;
 
   min-height: 100vh;
 }

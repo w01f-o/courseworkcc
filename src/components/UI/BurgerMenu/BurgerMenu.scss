@@ -1,0 +1,56 @@
+@use "styles/utils/index" as *;
+
+.burger {
+  &__menu {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+
+    width: 100vw;
+    height: 100vh;
+
+    &-content {
+      padding: 4rem 2rem;
+
+      width: 50%;
+      height: 100%;
+
+      background: $white;
+
+      @include sm-screen {
+        width: 60%;
+      }
+    }
+
+    &.burger-enter {
+      left: -100%;
+    }
+
+    &.burger-enter-active {
+      left: 0;
+      transition: 0.3s;
+    }
+
+    &.burger-exit {
+      left: 0;
+    }
+
+    &.burger-exit-active {
+      left: -100%;
+      transition: 0.3s;
+    }
+
+    .mobile-nav {
+      &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+      }
+
+      &__link {
+        @include primary-font;
+        font-size: clamp(1.5rem, 1.499rem + 1.391vw, 2rem);
+      }
+    }
+  }
+}

@@ -8,11 +8,16 @@
   &__img-wrapper {
     position: absolute;
     right: 30rem;
-    top: 50%;
+    top: -5%;
+    left: 55%;
     z-index: -1;
 
     height: 700px;
-    transform: rotate(27deg) translateY(-55%);
+    transform: rotate(27deg);
+
+    @include lg-screen {
+      left: 45%;
+    }
 
     img {
       height: 100%;
@@ -23,5 +28,9 @@
     padding: 13.688rem 0;
     margin-bottom: 8rem;
     @include title-font;
+
+    @include md-screen {
+      padding: 6.688rem 0 0;
+    }
   }
 }

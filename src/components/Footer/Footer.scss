@@ -4,21 +4,48 @@
   &__row {
     align-items: center;
     padding: 1.5rem 0;
+
+    @include lg-screen {
+      align-items: flex-start;
+    }
   }
 
   &__logo {
     @include primary-font;
     font-size: 3rem;
+
+    @include sm-screen {
+      font-size: clamp(1rem, 0.997rem + 5.565vw, 3rem);
+    }
   }
 
   &__social {
     @include flex(center, flex-end);
     gap: 3rem;
+
+    @include md-screen {
+      display: grid;
+      grid-template: repeat(2, 50px) / repeat(2, 50px);
+    }
+
+    @include sm-screen {
+      gap: 1rem;
+    }
   }
 
   .nav {
     &__link::before {
       content: none;
+    }
+
+    &__list {
+      @include lg-screen {
+        flex-wrap: wrap;
+      }
+
+      @include md-screen {
+        flex-direction: column;
+      }
     }
   }
 }

@@ -1,4 +1,5 @@
-import {FC, HTMLAttributes, useMemo} from "react";
+import { FC, HTMLAttributes } from "react";
+import classNames from "classnames";
 
 export const Container: FC<HTMLAttributes<HTMLDivElement>> = ({
   children,
@@ -6,7 +7,12 @@ export const Container: FC<HTMLAttributes<HTMLDivElement>> = ({
   ...props
 }) => {
   return (
-    <div className={`container${className ? ` ${className}` : ""}`} {...props}>
+    <div
+      className={classNames("container", {
+        [`${className}`]: className,
+      })}
+      {...props}
+    >
       {children}
     </div>
   );
@@ -18,7 +24,12 @@ export const Row: FC<HTMLAttributes<HTMLDivElement>> = ({
   ...props
 }) => {
   return (
-    <div className={`row${className ? ` ${className}` : ""}`} {...props}>
+    <div
+      className={classNames("row", {
+        [`${className}`]: className,
+      })}
+      {...props}
+    >
       {children}
     </div>
   );
@@ -44,19 +55,17 @@ export const Col: FC<ColProps> = ({
   className,
   ...props
 }) => {
-  const classNameArr: string = useMemo(() => [
-    `${xxl ? `col-xxl-${xxl}` : ""}`,
-    `${xl ? `col-xl-${xl}` : ""}`,
-    `${lg ? `col-lg-${lg}` : ""}`,
-    `${md ? `col-md-${md}` : ""}`,
-    `${sm ? `col-sm-${sm}` : ""}`,
-    `${xs ? `col-xs-${xs}` : ""}`,
-  ]
-      .filter((size: string) => size !== "")
-      .join(" "), [lg, md, sm, xl, xs, xxl])
   return (
     <div
-      className={`${classNameArr}${className ? ` ${className}` : ""}`}
+      className={classNames({
+        [`col-xxl-${xxl}`]: xxl,
+        [`col-xl-${xl}`]: xl,
+        [`col-lg-${lg}`]: lg,
+        [`col-md-${md}`]: md,
+        [`col-sm-${sm}`]: sm,
+        [`col-${xs}`]: xs,
+        [`${className}`]: className,
+      })}
       {...props}
     >
       {children}

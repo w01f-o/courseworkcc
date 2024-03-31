@@ -56,7 +56,7 @@ $col-offset: 15px;
   display: flex;
   flex-wrap: wrap;
 
-  margin: 0 $col-offset * -1;
+  margin: 0 ($col-offset * -1) / 2;
 }
 
 .row > * {
