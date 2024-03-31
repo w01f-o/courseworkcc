@@ -9,7 +9,7 @@ const Faq: FC = () => {
   return (
     <Container>
       <Row className="faq__row">
-        <Col xxl={12}>
+        <Col xs={12}>
           <div className="faq__content">
             <h1 className="faq__title">FAQ</h1>
             <div className="faq__list">

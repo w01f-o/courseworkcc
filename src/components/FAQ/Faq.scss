@@ -3,6 +3,10 @@
 .faq {
   &__row {
     padding-top: 1.5rem;
+
+    @include xxl-screen {
+      padding-bottom: 4rem;
+    }
   }
 
   &__title {
@@ -17,6 +21,10 @@
     gap: 1.5rem;
 
     padding-inline: 8rem;
+
+    @include lg-screen {
+      padding-inline: 2rem;
+    }
   }
 
   &__item {

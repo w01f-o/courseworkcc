@@ -15,7 +15,8 @@ const FilterItem: FC<FilterItemProps> = ({ filter, option }) => {
   );
 
   const changeFilterHandler = () => {
-    window.scroll(0, 0);
+    document.documentElement.scrollIntoView({ behavior: "smooth" });
+
     if (!isChecked) {
       setFilterProducts([...filterProducts, { filter: option, value: filter }]);
     } else {

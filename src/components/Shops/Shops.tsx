@@ -9,10 +9,10 @@ const Shops: FC = () => {
   return (
     <Container>
       <Row className="shops__row">
-        <Col xxl={12}>
+        <Col xs={12}>
           <h1 className="shops__title">Магазины</h1>
         </Col>
-        <Col xxl={12}>
+        <Col xs={12}>
           <div className="shops__info">
             {shopsData.map((shop: IShop, index) => (
               <ShopsItem shop={shop} key={index} />
@@ -20,7 +20,7 @@ const Shops: FC = () => {
           </div>
         </Col>
 
-        <Col xxl={10}>
+        <Col xs={10}>
           <iframe
             className="shops__map"
             src="https://yandex.ru/map-widget/v1/?um=constructor%3Acb71d2fd9a44d298019d088769f260f3de5ebcf8a97df759766f3d2b06162c98&amp;source=constructor"
