@@ -5,6 +5,7 @@ import { CatalogContext } from "context/CatalogContext";
 import CustomSelect from "components/UI/CustomSelect/CustomSelect";
 import classNames from "classnames";
 import { ViewModeEnum } from "../../enums/UIEnums.ts";
+import { useMatchMedia } from "hooks/useMatchMedia.ts";
 
 const CatalogTopBar: FC = () => {
   const { viewMode, setViewMode, setSortedProducts, sortedProducts } =
@@ -29,9 +30,11 @@ const CatalogTopBar: FC = () => {
     setViewMode(mode);
   };
 
+  const [isMobile] = useMatchMedia(["(max-width: 992px)"]);
+
   return (
     <Row>
-      <Col xxl={12}>
+      <Col xs={12}>
         <div className="catalog__topbar">
           <div className="catalog__topbar-sort">
             Сортировка по:{" "}
@@ -44,22 +47,26 @@ const CatalogTopBar: FC = () => {
               onChange={changeSelect}
             />
           </div>
-          <div className="catalog__topbar-switcher">
-            <span
-              className={classNames({
-                active: viewMode === ViewModeEnum.cells,
-              })}
-              onClick={setViewModeHandler(ViewModeEnum.cells)}
-            >
-              {cellsSvg}
-            </span>
-            <span
-              className={classNames({ active: viewMode === ViewModeEnum.rows })}
-              onClick={setViewModeHandler(ViewModeEnum.rows)}
-            >
-              {rowsSvg}
-            </span>
-          </div>
+          {!isMobile && (
+            <div className="catalog__topbar-switcher">
+              <span
+                className={classNames({
+                  active: viewMode === ViewModeEnum.cells,
+                })}
+                onClick={setViewModeHandler(ViewModeEnum.cells)}
+              >
+                {cellsSvg}
+              </span>
+              <span
+                className={classNames({
+                  active: viewMode === ViewModeEnum.rows,
+                })}
+                onClick={setViewModeHandler(ViewModeEnum.rows)}
+              >
+                {rowsSvg}
+              </span>
+            </div>
+          )}
         </div>
       </Col>
     </Row>

@@ -25,6 +25,10 @@
       padding: 1.75rem 0.813rem;
       margin-bottom: 1.5rem;
 
+      @include xxl-screen {
+        min-height: 360px;
+      }
+
       border-radius: 25px;
       background: $white-40;
       @include secondary-font;
@@ -161,7 +165,7 @@
     }
 
     &-buttons {
-      @include flex(stretch, space-between);
+      @include flex(flex-end, space-between);
       gap: 1rem;
       grid-area: btn;
       margin-top: 0.5rem;

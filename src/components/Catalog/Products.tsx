@@ -3,16 +3,19 @@ import { IProduct } from "types/productTypes";
 import ProductItem from "./ProductItem";
 import { CatalogContext } from "context/CatalogContext";
 import { FC, useContext } from "react";
+import { useMatchMedia } from "hooks/useMatchMedia.ts";
 
 const Products: FC = () => {
   const { viewMode, sortedAndFilteredAndPricedProduct } =
     useContext(CatalogContext);
 
+  const [isMobile] = useMatchMedia(["(max-width: 992px)"]);
+
   return (
     <Row className="catalog__products-row">
       {sortedAndFilteredAndPricedProduct.length ? (
         sortedAndFilteredAndPricedProduct.map((product: IProduct) => (
-          <Col key={product.id} xxl={viewMode}>
+          <Col key={product.id} lg={viewMode} md={6} xs={12}>
             <ProductItem
               img={product.imgSmall}
               name={product.name}

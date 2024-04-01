@@ -5,9 +5,10 @@
 
   border: 2px solid $black;
   border-radius: 10px;
-  padding: 0.375rem 0.75rem;
   transition: 0.1s;
 
+  height: 2.5rem;
+  width: 2.5rem;
   background: $black;
 
   @include hover-screen {
@@ -28,6 +29,6 @@
   }
 
   &-count {
-    align-self: center;
+    padding-bottom: 8%;
   }
 }
