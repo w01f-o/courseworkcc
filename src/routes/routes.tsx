@@ -13,20 +13,17 @@ export class PageRoute {
   private readonly _element: ReactNode;
   private readonly _name: string;
   private readonly _inNavbar: boolean;
-  private readonly _inMobileNav: boolean;
 
   constructor(
     path: string,
     element: ReactNode,
     name: string,
     inNavbar: boolean,
-    inMobileNav: boolean,
   ) {
     this._path = path;
     this._element = element;
     this._name = name;
     this._inNavbar = inNavbar;
-    this._inMobileNav = inMobileNav;
   }
 
   get path(): string {
@@ -44,19 +41,15 @@ export class PageRoute {
   get inNavbar(): boolean {
     return this._inNavbar;
   }
-
-  get inMobileNav(): boolean {
-    return this._inMobileNav;
-  }
 }
 
 export const routes: PageRoute[] = [
-  new PageRoute("/", <MainPage />, "Главная", true, true),
-  new PageRoute("/catalog", <CatalogPage />, "Каталог", true, true),
-  new PageRoute("/catalog/product/:id", <ProductPage />, "Товар", false, false),
-  new PageRoute("/faq", <FaqPage />, "FAQ", true, true),
-  new PageRoute("/contacts", <ContactsPage />, "Контакты", true, true),
-  new PageRoute("/shops", <ShopsPage />, "Магазины", true, true),
-  new PageRoute("/basket", <BasketPage />, "Корзина", false, true),
-  new PageRoute("*", <NotFoundPage />, "404", false, false),
+  new PageRoute("/", <MainPage />, "Главная", true),
+  new PageRoute("/catalog", <CatalogPage />, "Каталог", true),
+  new PageRoute("/catalog/product/:id", <ProductPage />, "Товар", false),
+  new PageRoute("/faq", <FaqPage />, "FAQ", true),
+  new PageRoute("/contacts", <ContactsPage />, "Контакты", true),
+  new PageRoute("/shops", <ShopsPage />, "Магазины", true),
+  new PageRoute("/basket", <BasketPage />, "Корзина", false),
+  new PageRoute("*", <NotFoundPage />, "404", false),
 ];

@@ -10,7 +10,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import { useMatchMedia } from "hooks/useMatchMedia.ts";
 import BurgerButton from "components/UI/BurgerMenu/BurgerButton/BurgerButton.tsx";
 import BurgerMenu from "components/UI/BurgerMenu/BurgerMenu.tsx";
-import MobileNav from "components/MobileNav/MobileNav.tsx";
+import BottomNavBar from "components/BottomNavBar/BottomNavBar.tsx";
 
 const Header: FC = () => {
   const [isMobile] = useMatchMedia(["(max-width: 992px)"]);
@@ -65,9 +65,12 @@ const Header: FC = () => {
           )}
         </Row>
         {isMobile && (
-          <BurgerMenu isOpen={burgerIsOpen} setIsOpen={setBurgerIsOpen}>
-            <MobileNav />
-          </BurgerMenu>
+          <>
+            <BurgerMenu isOpen={burgerIsOpen} setIsOpen={setBurgerIsOpen}>
+              <NavBar />
+            </BurgerMenu>
+            <BottomNavBar />
+          </>
         )}
       </Container>
     </header>

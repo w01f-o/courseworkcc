@@ -4,11 +4,21 @@
   &__list {
     display: flex;
     gap: 1.5rem;
+
+    @include lg-screen {
+      flex-direction: column;
+
+      padding: 4rem 2rem;
+    }
   }
 
   &__link {
     position: relative;
     @include secondary-font;
+
+    @include lg-screen {
+      @include primary-font;
+    }
 
     $transitionTime: 0.3s;
 

@@ -4,6 +4,7 @@ import { loginSvg } from "../svg/svg";
 import Modal from "components/UI/Modal/Modal";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
+import { useMatchMedia } from "hooks/useMatchMedia.ts";
 
 enum AuthModeEnum {
   logIn,
@@ -13,6 +14,7 @@ enum AuthModeEnum {
 const HeaderAuth: FC = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [authMode, setAuthMode] = useState<AuthModeEnum>(AuthModeEnum.logIn);
+  const [isMobile] = useMatchMedia(["(max-width: 992px)"]);
 
   const changeAuthMode = () => {
     authMode === AuthModeEnum.logIn
@@ -22,16 +24,27 @@ const HeaderAuth: FC = () => {
 
   return (
     <>
-      <div
-        className="header__auth"
-        onClick={() => {
-          setOpenModal(true);
-          setAuthMode(AuthModeEnum.logIn);
-        }}
-      >
-        <HeaderButton>{loginSvg}</HeaderButton>
-        Войти
-      </div>
+      {isMobile ? (
+        <HeaderButton
+          onClick={() => {
+            setOpenModal(true);
+            setAuthMode(AuthModeEnum.logIn);
+          }}
+        >
+          {loginSvg}
+        </HeaderButton>
+      ) : (
+        <div
+          className="header__auth"
+          onClick={() => {
+            setOpenModal(true);
+            setAuthMode(AuthModeEnum.logIn);
+          }}
+        >
+          <HeaderButton>{loginSvg}</HeaderButton>
+          Войти
+        </div>
+      )}
       <Modal isOpen={openModal} setOpen={setOpenModal}>
         <div className="header__auth-modal">
           <h3 className="header__auth-title">Добро пожаловать!</h3>

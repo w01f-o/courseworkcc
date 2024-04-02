@@ -50,7 +50,7 @@ const Product: FC = () => {
       <Row className="product__row">
         {product ? (
           <>
-            <Col xxl={6}>
+            <Col lg={6} xs={12}>
               <Swiper
                 spaceBetween={0}
                 slidesPerView={1}
@@ -70,7 +70,7 @@ const Product: FC = () => {
                 ))}
               </Swiper>
             </Col>
-            <Col xxl={6}>
+            <Col lg={6} xs={12}>
               <div className="product__info">
                 <div className="info-wrapper">
                   <h3 className="product__title">{product.name}</h3>
@@ -95,7 +95,7 @@ const Product: FC = () => {
                 </div>
               </div>
             </Col>
-            <Col xxl={12}>
+            <Col xs={12}>
               <div className="product__tabs">
                 <button
                   className={classNames("product__tabs-item", {

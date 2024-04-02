@@ -4,8 +4,16 @@
   &__row {
     padding: 3.5rem 0;
 
+    @include lg-screen {
+      padding: 0 0 3.5rem;
+    }
+
     .swiper-wrapper {
       padding-bottom: 2rem;
+
+      @include lg-screen {
+        padding-bottom: 1rem;
+      }
     }
 
     .swiper-pagination {
@@ -21,6 +29,7 @@
     display: flex;
     gap: 1rem;
     padding: 5rem 0 2rem 0;
+
     &-item {
       border: none;
       border-radius: 10px;
@@ -68,6 +77,10 @@
       border-radius: 10px;
 
       background: $white-40;
+
+      @include md-screen {
+        max-width: 100%;
+      }
     }
 
     &-name {
@@ -108,10 +121,6 @@
         gap: 1rem;
 
         @include secondary-font;
-
-        .product-btn {
-          padding: 1.1rem;
-        }
       }
     }
   }
@@ -120,12 +129,20 @@
     padding-right: 10rem;
     @include title-font;
     font-size: 2rem;
+
+    @include lg-screen {
+      padding-top: 1.5rem;
+    }
   }
 
   &__description {
     padding: 1rem 10rem 1rem 0;
     line-height: 120%;
     @include secondary-font;
+
+    @include lg-screen {
+      padding-right: 3rem;
+    }
   }
 
   &__price {

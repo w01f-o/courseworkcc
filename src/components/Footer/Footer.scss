@@ -8,6 +8,10 @@
     @include lg-screen {
       align-items: flex-start;
     }
+
+    @include lg-screen {
+      padding-bottom: 80px;
+    }
   }
 
   &__logo {

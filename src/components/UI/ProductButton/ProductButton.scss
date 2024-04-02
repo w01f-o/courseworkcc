@@ -28,7 +28,28 @@
     }
   }
 
+  @include not-hover-screen {
+    &:active {
+      background: none;
+      transition: 0.1s;
+    }
+
+    &:active > svg {
+      path {
+        stroke: $black;
+      }
+
+      rect {
+        fill: $black;
+      }
+    }
+  }
+
   &-count {
-    padding-bottom: 8%;
+    @include xxl-screen {
+      padding-top: 9%;
+    }
+    align-self: center;
+    @include secondary-font;
   }
 }
