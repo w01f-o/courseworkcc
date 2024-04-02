@@ -25,6 +25,15 @@
       padding-right: 1rem;
     }
 
+    @include sm-screen {
+      flex-direction: column;
+      align-items: flex-start;
+      height: auto;
+      gap: 1rem;
+
+      padding: 2rem;
+    }
+
     &-buttons {
       display: flex;
       gap: 1rem;
@@ -44,6 +53,12 @@
       @include lg-screen {
         padding-left: 1rem;
       }
+
+      @include sm-screen {
+        align-self: flex-end;
+        width: 100%;
+        padding-left: 0;
+      }
     }
 
     &-name {
@@ -58,6 +73,12 @@
         size: 1.5rem;
       }
       text-align: center;
+
+      @include sm-screen {
+        display: flex;
+        align-items: flex-end;
+        flex-basis: 60%;
+      }
     }
 
     &-img-wrapper {
@@ -69,6 +90,16 @@
         width: 80%;
         height: 80%;
         object-fit: contain;
+      }
+
+      @include sm-screen {
+        width: 100%;
+
+        img {
+          width: 60%;
+          height: 60%;
+          object-fit: contain;
+        }
       }
     }
   }

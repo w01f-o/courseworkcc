@@ -2,12 +2,15 @@ import { FC } from "react";
 import { IBasketProduct } from "types/productTypes.ts";
 import { Link } from "react-router-dom";
 import ProductButtons from "components/UI/ProductButton/ProductButton.tsx";
+import { useMatchMedia } from "hooks/useMatchMedia.ts";
 
 interface BasketItemProps {
   product: IBasketProduct;
 }
 
 const BasketItem: FC<BasketItemProps> = ({ product }) => {
+  const [isMobile] = useMatchMedia(["(max-width: 576px)"]);
+
   return (
     <div className="basket__item">
       <div className="basket__item-img-wrapper">
@@ -17,6 +20,9 @@ const BasketItem: FC<BasketItemProps> = ({ product }) => {
         {product.name}
       </Link>
       <div className="basket__item-buttons">
+        {isMobile && (
+          <div className="basket__item-price">{product.price} ₽</div>
+        )}
         <ProductButtons
           id={product.id}
           name={product.name}
@@ -25,7 +31,7 @@ const BasketItem: FC<BasketItemProps> = ({ product }) => {
           altName={product.altName}
         />
       </div>
-      <div className="basket__item-price">{product.price} ₽</div>
+      {!isMobile && <div className="basket__item-price">{product.price} ₽</div>}
     </div>
   );
 };
