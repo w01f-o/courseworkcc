@@ -15,4 +15,7 @@ export default defineConfig({
       routes: "/src/routes",
     },
   },
+  build: {
+    outDir: "./docs",
+  },
 });
