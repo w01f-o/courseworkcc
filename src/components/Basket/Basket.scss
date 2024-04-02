@@ -20,12 +20,30 @@
     border-radius: 1.563rem;
     background: $white-40;
 
+    @include xl-screen {
+      height: 180px;
+      padding-right: 1rem;
+    }
+
     &-buttons {
       display: flex;
       gap: 1rem;
       flex-basis: 15%;
       height: 40px;
       padding-left: 2rem;
+
+      .product-btn-count {
+        padding-bottom: 0;
+        align-self: center;
+      }
+
+      @include xl-screen {
+        padding: 0;
+      }
+
+      @include lg-screen {
+        padding-left: 1rem;
+      }
     }
 
     &-name {

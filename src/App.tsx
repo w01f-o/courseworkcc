@@ -4,8 +4,7 @@ import { FC } from "react";
 import "styles/App.scss";
 import "styles/_global.scss";
 import { Route, Routes } from "react-router-dom";
-import { routes } from "./routes/routes";
-import IRoute from "types/routesType";
+import { PageRoute, routes } from "./routes/routes";
 import BasketContextProvider from "context/BasketContext";
 import ScrollToTop from "utils/ScrollToTop";
 
@@ -17,7 +16,7 @@ const App: FC = () => {
         <main className="main">
           <ScrollToTop />
           <Routes>
-            {routes.map((route: IRoute) => (
+            {routes.map((route: PageRoute) => (
               <Route
                 path={route.path}
                 element={route.element}

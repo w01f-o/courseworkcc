@@ -1,4 +1,4 @@
-import {FC, memo, useContext} from "react";
+import { FC, memo, useContext } from "react";
 import FilterList from "components/Catalog/FilterList/FilterList.tsx";
 import { CatalogContext } from "context/CatalogContext.tsx";
 import { createFiltersArray } from "utils/createFiltersArray.ts";
@@ -6,27 +6,33 @@ import ResetFilter from "components/Catalog/FilterList/ResetFilter.tsx";
 import { CSSTransition } from "react-transition-group";
 import FilterByPrice from "components/Catalog/FilterList/FilterByPrice.tsx";
 import { IProduct } from "types/productTypes.ts";
-import {productsList} from "../../data/products.ts";
+import { productsList } from "../../data/products.ts";
+import { useMatchMedia } from "hooks/useMatchMedia.ts";
 
 const CatalogFilter: FC = memo(() => {
-  const { filterProducts, sortByPriceValue } =
-    useContext(CatalogContext);
+  const { filterProducts, sortByPriceValue } = useContext(CatalogContext);
+  const [isMobile] = useMatchMedia(["(max-width: 992px)"]);
 
   return (
     <div className="catalog__filter">
-      <CSSTransition
-        in={
-          filterProducts.length > 0 ||
-          sortByPriceValue.from !== 0 ||
-          sortByPriceValue.to !==
-            Math.max(...productsList.map((product: IProduct) => product.price))
-        }
-        unmountOnExit
-        timeout={200}
-        classNames="filter"
-      >
-        <ResetFilter />
-      </CSSTransition>
+      {!isMobile && (
+        <CSSTransition
+          in={
+            filterProducts.length > 0 ||
+            sortByPriceValue.from !== 0 ||
+            sortByPriceValue.to !==
+              Math.max(
+                ...productsList.map((product: IProduct) => product.price),
+              )
+          }
+          unmountOnExit
+          timeout={200}
+          classNames="filter"
+        >
+          <ResetFilter />
+        </CSSTransition>
+      )}
+
       <FilterList
         title={"Производитель"}
         filters={createFiltersArray("manufacturer", productsList)}

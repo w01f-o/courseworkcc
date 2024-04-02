@@ -53,17 +53,29 @@
     size: 1.5rem;
     weight: 500;
   }
+
+  @include sm-screen {
+    font-size: clamp(1.3rem, 1.3rem + 0.557vw, 1.5rem);
+  }
 }
 
 @mixin secondary-font {
   @include primary-font;
 
   font-size: 1.125rem;
+
+  @include sm-screen {
+    font-size: clamp(1rem, 1rem + 0.348vw, 1.125rem);
+  }
 }
 
 @mixin title-font {
   font: {
     size: 3rem;
     weight: 600;
+  }
+
+  @include sm-screen {
+    font-size: clamp(2.5rem, 2.499rem + 1.391vw, 3rem);
   }
 }

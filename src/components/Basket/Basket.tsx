@@ -13,22 +13,22 @@ const Basket: FC = () => {
     <>
       <Container className="basket">
         <Row className="basket__row">
-          <Col xxl={12}>
+          <Col xs={12}>
             <h1 className="basket__title">Корзина</h1>
           </Col>
           {basket.length > 0 ? (
             <>
-              <Col xxl={8}>
+              <Col xl={8} lg={7} xs={12}>
                 {basket.map((product: IBasketProduct) => (
                   <BasketItem product={product} key={product.id} />
                 ))}
               </Col>
-              <Col xxl={4}>
+              <Col xl={4} lg={5} xs={12}>
                 <BasketForm />
               </Col>
             </>
           ) : (
-            <Col xxl={12}>
+            <Col xs={12}>
               <div className="basket__empty">Ваша корзина пуста</div>
             </Col>
           )}

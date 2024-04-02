@@ -8,7 +8,7 @@
 
   &__logo {
     @include primary-font;
-    font-size: 3rem;
+    font-size: 3rem !important;
   }
 
   &__btn-wrapper {

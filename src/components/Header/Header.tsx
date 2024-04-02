@@ -1,15 +1,16 @@
 import { Col, Container, Row } from "components/Layout/Layout";
 import NavBar from "components/NavBar/NavBar";
 import HeaderButton from "components/UI/HeaderButton/HeaderButton";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import "./Header.scss";
 import HeaderAuth from "./HeaderAuth/HeaderAuth";
 import HeaderSearch from "./HeaderSearch/HeaderSearch";
 import { basketSvg } from "./svg/svg";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useMatchMedia } from "hooks/useMatchMedia.ts";
 import BurgerButton from "components/UI/BurgerMenu/BurgerButton/BurgerButton.tsx";
 import BurgerMenu from "components/UI/BurgerMenu/BurgerMenu.tsx";
+import MobileNav from "components/MobileNav/MobileNav.tsx";
 
 const Header: FC = () => {
   const [isMobile] = useMatchMedia(["(max-width: 992px)"]);
@@ -18,6 +19,12 @@ const Header: FC = () => {
   const burgerClickHandler = () => {
     setBurgerIsOpen(!burgerIsOpen);
   };
+
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    setBurgerIsOpen(false);
+  }, [pathname, setBurgerIsOpen]);
 
   return (
     <header className="header">
@@ -58,9 +65,9 @@ const Header: FC = () => {
           )}
         </Row>
         {isMobile && (
-          <>
-            <BurgerMenu isOpen={burgerIsOpen} setIsOpen={setBurgerIsOpen} />
-          </>
+          <BurgerMenu isOpen={burgerIsOpen} setIsOpen={setBurgerIsOpen}>
+            <MobileNav />
+          </BurgerMenu>
         )}
       </Container>
     </header>

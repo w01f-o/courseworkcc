@@ -7,12 +7,20 @@
     display: flex;
     gap: 0.5rem;
     margin-left: -0.3rem;
+
+    @include sm-screen {
+      flex-direction: column;
+    }
   }
 
   &__label {
     @include flex();
     gap: 0.7rem;
     @include secondary-font;
+
+    @include sm-screen {
+      justify-content: flex-start;
+    }
   }
 
   &__input {

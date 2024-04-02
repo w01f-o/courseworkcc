@@ -1,15 +1,22 @@
 import { Col, Row } from "components/Layout/Layout";
-import { FC, useContext } from "react";
-import { cellsSvg, rowsSvg } from "./svg/svg";
+import { FC, useContext, useEffect, useState } from "react";
+import { cellsSvg, mobileFilterSvg, rowsSvg } from "./svg/svg";
 import { CatalogContext } from "context/CatalogContext";
 import CustomSelect from "components/UI/CustomSelect/CustomSelect";
 import classNames from "classnames";
 import { ViewModeEnum } from "../../enums/UIEnums.ts";
 import { useMatchMedia } from "hooks/useMatchMedia.ts";
+import BurgerMenu from "components/UI/BurgerMenu/BurgerMenu.tsx";
+import CatalogFilter from "components/Catalog/CatalogFilter.tsx";
 
 const CatalogTopBar: FC = () => {
-  const { viewMode, setViewMode, setSortedProducts, sortedProducts } =
-    useContext(CatalogContext);
+  const {
+    viewMode,
+    setViewMode,
+    setSortedProducts,
+    sortedProducts,
+    filterProducts,
+  } = useContext(CatalogContext);
 
   const changeSelect = (sort: string) => {
     setSortedProducts(
@@ -31,6 +38,15 @@ const CatalogTopBar: FC = () => {
   };
 
   const [isMobile] = useMatchMedia(["(max-width: 992px)"]);
+  const [openMobileFilter, setOpenMobileFilter] = useState<boolean>(false);
+
+  const mobileFilterClickHandler = () => {
+    setOpenMobileFilter(!openMobileFilter);
+  };
+
+  useEffect(() => {
+    setOpenMobileFilter(false);
+  }, [filterProducts]);
 
   return (
     <Row>
@@ -66,6 +82,22 @@ const CatalogTopBar: FC = () => {
                 {rowsSvg}
               </span>
             </div>
+          )}
+          {isMobile && (
+            <>
+              <button
+                className="catalog__filter-mobile"
+                onClick={mobileFilterClickHandler}
+              >
+                {mobileFilterSvg}
+              </button>
+              <BurgerMenu
+                isOpen={openMobileFilter}
+                setIsOpen={setOpenMobileFilter}
+              >
+                <CatalogFilter />
+              </BurgerMenu>
+            </>
           )}
         </div>
       </Col>

@@ -3,13 +3,10 @@ import { IProduct } from "types/productTypes";
 import ProductItem from "./ProductItem";
 import { CatalogContext } from "context/CatalogContext";
 import { FC, useContext } from "react";
-import { useMatchMedia } from "hooks/useMatchMedia.ts";
 
 const Products: FC = () => {
   const { viewMode, sortedAndFilteredAndPricedProduct } =
     useContext(CatalogContext);
-
-  const [isMobile] = useMatchMedia(["(max-width: 992px)"]);
 
   return (
     <Row className="catalog__products-row">

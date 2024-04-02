@@ -19,11 +19,27 @@
     display: grid;
     grid-template: repeat(2, 1fr) / repeat(2, 1fr);
     grid-gap: 1.5rem 1rem;
+
+    @include lg-screen {
+      grid-template: repeat(4, 1fr) / 1fr;
+    }
   }
 
   &__item {
     &:nth-child(odd) {
       padding-left: 30%;
+
+      @include xxl-screen {
+        padding-left: 18%;
+      }
+
+      @include xl-screen {
+        padding-left: 5%;
+      }
+
+      @include lg-screen {
+        padding: 0;
+      }
     }
 
     &-address {
@@ -41,11 +57,31 @@
   }
 
   &__map {
+    position: relative;
     border-radius: 0.9375rem;
+    overflow: hidden;
 
     width: 100%;
     height: 522px;
 
     margin: 2.5625rem 0;
+
+    iframe {
+      width: inherit;
+      height: inherit;
+    }
+  }
+
+  &__skeleton {
+    position: absolute;
+    z-index: 1000;
+
+    width: 100%;
+    height: inherit;
+
+    span {
+      width: 100%;
+      height: inherit;
+    }
   }
 }
