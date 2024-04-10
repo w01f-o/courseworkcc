@@ -43,9 +43,17 @@
 
   &__search {
     &-modal {
-      width: 70vw;
+      width: 40vw;
       height: 60vh;
       overflow-y: auto;
+
+      @include xxl-screen {
+        width: 55vw;
+      }
+
+      @include lg-screen {
+        width: 80vw;
+      }
     }
 
     &-not-found {
@@ -77,8 +85,12 @@
       border-radius: 0.5rem;
       padding: 0.5rem;
 
+      &-name {
+      }
+
       &-price {
         font-weight: 500;
+        font-size: 1.2rem;
       }
 
       &-img-wrapper {
@@ -114,7 +126,7 @@
     }
 
     &-modal {
-      width: 30vw;
+      width: 28vw;
       padding: 4rem;
       text-align: center;
 

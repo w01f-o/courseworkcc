@@ -8,6 +8,7 @@ import {
 } from "react";
 import "./CustomSelect.scss";
 import { CSSTransition } from "react-transition-group";
+import classNames from "classnames";
 
 export interface IOption {
   name: string;
@@ -35,17 +36,8 @@ const CustomSelect: FC<CustomSelectProps> = ({
   useEffect(() => {
     // eslint-disable-next-line
     const handleClickOutside = (e: any) => {
-      if (
-        isCollapseSelect &&
-        defaultOptionRef.current &&
-        optionRef.current &&
-        !e.target.classList.contains("custom-select__span") &&
-        !e.target.classList.contains("custom-select__current") &&
-        !e.target.matches("svg") &&
-        !e.target.matches("path")
-      ) {
+      if (!e.target?.matches(".custom-select__current"))
         setIsCollapseSelect(false);
-      }
     };
 
     const handleKeyboardClick = (e: KeyboardEvent) => {
@@ -61,7 +53,7 @@ const CustomSelect: FC<CustomSelectProps> = ({
       document.body.removeEventListener("click", handleClickOutside);
       document.body.removeEventListener("keydown", handleKeyboardClick);
     };
-  }, [isCollapseSelect]);
+  }, []);
 
   useEffect(() => {
     onChange(selectOption.value);
@@ -73,14 +65,16 @@ const CustomSelect: FC<CustomSelectProps> = ({
         className="custom-select__current"
         onClick={() => setIsCollapseSelect(!isCollapseSelect)}
       >
-        <span className="custom-select__span">{selectOption.name}</span>
+        <div className="custom-select__name">{selectOption.name}</div>
         <svg
           width="18"
           height="9"
           viewBox="0 0 18 9"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className={`custom-select__svg${isCollapseSelect ? " open" : ""}`}
+          className={classNames("custom-select__svg", {
+            open: isCollapseSelect,
+          })}
         >
           <path
             d="M16.84 1L10.32 7.52C9.55 8.29 8.29 8.29 7.52 7.52L1 1"
@@ -98,7 +92,7 @@ const CustomSelect: FC<CustomSelectProps> = ({
         timeout={100}
         classNames="select"
       >
-        <div className="custom-select__collapse">
+        <div className="custom-select__body">
           <div
             className="custom-select__default"
             onClick={() => {
