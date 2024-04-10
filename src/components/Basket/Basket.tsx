@@ -13,11 +13,11 @@ const Basket: FC = () => {
     <>
       <Container className="basket">
         <Row className="basket__row">
-          <Col xs={12}>
-            <h1 className="basket__title">Корзина</h1>
-          </Col>
           {basket.length > 0 ? (
             <>
+              <Col xs={12}>
+                <h1 className="basket__title">Корзина</h1>
+              </Col>
               <Col xl={8} lg={7} xs={12}>
                 {basket.map((product: IBasketProduct) => (
                   <BasketItem product={product} key={product.id} />

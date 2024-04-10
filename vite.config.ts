@@ -15,5 +15,4 @@ export default defineConfig({
       routes: "/src/routes",
     },
   },
-  base: "courseworkcc",
 });

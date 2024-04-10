@@ -32,6 +32,9 @@ const BasketForm: FC = () => {
     return basketTotalPrice < 5999 ? 400 : 0;
   }, [basketTotalPrice]);
 
+  const [totalPriceWithDiscount, setTotalPriceWithDiscount] =
+    useState<number>(0);
+
   useEffect(() => {
     setBasketTotalPrice(
       basket.reduce(
@@ -57,7 +60,7 @@ const BasketForm: FC = () => {
           message: promocodeAlertText.success,
           isApplied: true,
         });
-        setBasketTotalPrice((prev) => prev - 100);
+        setTotalPriceWithDiscount((prev) => basketTotalPrice + prev - 990);
       } else if (promocodeState.isApplied) {
         setPromocodeState({
           type: AlertTypeEnum.error,
@@ -86,7 +89,11 @@ const BasketForm: FC = () => {
       <hr />
       <div className="basket__form-total">
         К оплате: {basketTotalPrice + deliveryPrice} ₽
+        {promocodeState.isApplied && (
+          <div className="discount">{totalPriceWithDiscount} ₽</div>
+        )}
       </div>
+
       <hr />
       <div className="basket__form-row">
         <label htmlFor="promocode">Промокод:</label>
