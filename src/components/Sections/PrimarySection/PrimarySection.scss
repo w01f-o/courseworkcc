@@ -1,4 +1,4 @@
-@use "styles/utils/index" as *;
+@import "styles/utils/index";
 
 .section {
   &:last-child {
@@ -23,6 +23,15 @@
   &__content {
     height: 32.813rem;
     border-radius: 25px;
+
+    @include lg-screen {
+      min-height: 24rem;
+    }
+
+    @include sm-screen {
+      min-height: auto;
+      max-height: 14rem;
+    }
 
     background: $white-40;
     -webkit-box-shadow: 0 0 30px -15px rgba(0, 0, 0, 0.75);

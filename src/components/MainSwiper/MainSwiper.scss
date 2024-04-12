@@ -1,0 +1,48 @@
+@import "styles/utils/index";
+
+.section__content {
+  .swiper {
+    height: 100%;
+  }
+}
+
+.main {
+  &__img {
+    display: grid;
+    place-items: center;
+    height: 100%;
+
+    .wrapper {
+      border-radius: 25px;
+      overflow: hidden;
+      max-width: 80%;
+
+      img {
+        max-width: 100%;
+        max-height: 450px;
+      }
+
+      @include sm-screen {
+        max-width: 90%;
+      }
+    }
+  }
+
+  &__swiper-btn {
+    position: absolute;
+    z-index: 899;
+    top: 50%;
+    border: none;
+    background: none;
+
+    &-prev {
+      transform: rotate(180deg) translateY(50%);
+      left: 1%;
+    }
+
+    &-next {
+      right: 1%;
+      transform: translateY(-50%);
+    }
+  }
+}

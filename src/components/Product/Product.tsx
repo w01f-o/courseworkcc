@@ -62,7 +62,7 @@ const Product: FC = () => {
                 pagination={{ clickable: true }}
               >
                 {imgCountArray?.map((_slide, index) => (
-                  <SwiperSlide key={index}>
+                  <SwiperSlide key={index} virtualIndex={index}>
                     <div className="product__img-wrapper">
                       <img src={product.imgBig[index]} alt={product.altName} />
                     </div>
