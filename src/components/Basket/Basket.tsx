@@ -15,6 +15,7 @@ const Basket: FC = () => {
   const onSubmit = () => {
     setSubmitAlert(true);
     setBasket([]);
+    window.scroll(0, 0);
   };
 
   return (
