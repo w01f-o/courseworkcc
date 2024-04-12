@@ -4,6 +4,7 @@ import { IBasketProduct } from "types/productTypes.ts";
 import PrimaryButton from "components/UI/PrimaryButton/PrimaryButton.tsx";
 import Alert from "components/UI/Alert/Alert.tsx";
 import { AlertTypeEnum } from "../../enums/UIEnums.ts";
+import classNames from "classnames";
 
 enum promocodeAlertText {
   success = "Промокод применён",
@@ -17,8 +18,12 @@ interface PromocodeState {
   isApplied: boolean;
 }
 
-const BasketForm: FC = () => {
-  const { basket, setBasket, promocodes } = useContext(BasketContext);
+interface BasketFormProps {
+  submitHandler: () => void;
+}
+
+const BasketForm: FC<BasketFormProps> = ({ submitHandler }) => {
+  const { basket, promocodes } = useContext(BasketContext);
 
   const [basketTotalPrice, setBasketTotalPrice] = useState<number>(0);
   const [openAlert, setOpenAlert] = useState<boolean>(false);
@@ -87,13 +92,23 @@ const BasketForm: FC = () => {
         <div className="basket__form-price">Доставка: {deliveryPrice} ₽</div>
       </div>
       <hr />
-      <div className="basket__form-total">
-        К оплате: {basketTotalPrice + deliveryPrice} ₽
+      <div
+        className={classNames("basket__form-wrapper", {
+          line: promocodeState.isApplied,
+        })}
+      >
+        К оплате:{" "}
+        <div
+          className={classNames("basket__form-total", {
+            line: promocodeState.isApplied,
+          })}
+        >
+          {basketTotalPrice + deliveryPrice} ₽
+        </div>
         {promocodeState.isApplied && (
           <div className="discount">{totalPriceWithDiscount} ₽</div>
         )}
       </div>
-
       <hr />
       <div className="basket__form-row">
         <label htmlFor="promocode">Промокод:</label>
@@ -110,7 +125,7 @@ const BasketForm: FC = () => {
           {promocodeState.message}
         </Alert>
       </div>
-      <PrimaryButton className="basket__form-btn" onClick={() => setBasket([])}>
+      <PrimaryButton className="basket__form-btn" onClick={submitHandler}>
         Оформить заказ
       </PrimaryButton>
     </div>

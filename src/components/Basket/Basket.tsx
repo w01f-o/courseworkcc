@@ -1,13 +1,21 @@
-import { FC, useContext } from "react";
+import { FC, useContext, useState } from "react";
 import { Col, Container, Row } from "components/Layout/Layout.tsx";
 import { BasketContext } from "context/BasketContext.tsx";
 import { IBasketProduct } from "types/productTypes.ts";
 import "./Basket.scss";
 import BasketItem from "components/Basket/BasketItem.tsx";
 import BasketForm from "components/Basket/BasketForm.tsx";
+import Alert from "components/UI/Alert/Alert.tsx";
+import { AlertTypeEnum } from "../../enums/UIEnums.ts";
 
 const Basket: FC = () => {
-  const { basket } = useContext(BasketContext);
+  const { basket, setBasket } = useContext(BasketContext);
+  const [submitAlert, setSubmitAlert] = useState<boolean>(false);
+
+  const onSubmit = () => {
+    setSubmitAlert(true);
+    setBasket([]);
+  };
 
   return (
     <>
@@ -24,7 +32,7 @@ const Basket: FC = () => {
                 ))}
               </Col>
               <Col xl={4} lg={5} xs={12}>
-                <BasketForm />
+                <BasketForm submitHandler={onSubmit} />
               </Col>
             </>
           ) : (
@@ -32,6 +40,16 @@ const Basket: FC = () => {
               <div className="basket__empty">Ваша корзина пуста</div>
             </Col>
           )}
+          <div>
+            <Alert
+              isOpen={submitAlert}
+              alertType={AlertTypeEnum.success}
+              setIsOpen={setSubmitAlert}
+              closeTimeout={5000}
+            >
+              Заказ успешно оформлен!
+            </Alert>
+          </div>
         </Row>
       </Container>
     </>
