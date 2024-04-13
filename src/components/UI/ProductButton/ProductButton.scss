@@ -46,6 +46,8 @@
   }
 
   &-count {
+    padding-top: 5%;
+    
     @include xxl-screen {
       padding-top: 9%;
     }
