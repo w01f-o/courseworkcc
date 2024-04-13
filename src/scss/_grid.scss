@@ -10,37 +10,37 @@ $breakpoint-xxl: 1400px;
 $col-offset: 15px;
 
 @mixin xs-screen {
-  @media only screen and (min-width: $breakpoint-xs) {
+  @media (min-width: $breakpoint-xs) {
     @content;
   }
 }
 
 @mixin sm-screen {
-  @media only screen and (min-width: $breakpoint-sm) {
+  @media (min-width: $breakpoint-sm) {
     @content;
   }
 }
 
 @mixin md-screen {
-  @media only screen and (min-width: $breakpoint-md) {
+  @media (min-width: $breakpoint-md) {
     @content;
   }
 }
 
 @mixin lg-screen {
-  @media only screen and (min-width: $breakpoint-lg) {
+  @media (min-width: $breakpoint-lg) {
     @content;
   }
 }
 
 @mixin xl-screen {
-  @media only screen and (min-width: $breakpoint-xl) {
+  @media (min-width: $breakpoint-xl) {
     @content;
   }
 }
 
 @mixin xxl-screen {
-  @media only screen and (min-width: $breakpoint-xxl) {
+  @media (min-width: $breakpoint-xxl) {
     @content;
   }
 }
