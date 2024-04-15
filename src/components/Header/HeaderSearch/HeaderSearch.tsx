@@ -1,5 +1,5 @@
 import HeaderButton from "components/UI/HeaderButton/HeaderButton";
-import { FC, useMemo, useState } from "react";
+import { ChangeEvent, FC, useEffect, useMemo, useRef, useState } from "react";
 import { searchSvg } from "../svg/svg";
 import Modal from "components/UI/Modal/Modal";
 import { productsList } from "../../../data/products";
@@ -14,7 +14,7 @@ const HeaderSearch: FC = () => {
     return productsList.filter(
       (product: IProduct) =>
         product.name.toLowerCase().includes(inputValue.toLowerCase()) ||
-        product.altName.toLowerCase().includes(inputValue.toLowerCase())
+        product.altName.toLowerCase().includes(inputValue.toLowerCase()),
     );
   }, [inputValue]);
 
@@ -22,6 +22,17 @@ const HeaderSearch: FC = () => {
     setOpenModal(false);
     setInputValue("");
   };
+
+  useEffect(() => {
+    if (openModal) {
+      inputRef.current?.focus();
+      document.body.style["overflow"] = "hidden";
+    } else {
+      document.body.style["overflow"] = "visible";
+    }
+  }, [openModal]);
+
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
   return (
     <div className="header__search">
@@ -34,7 +45,8 @@ const HeaderSearch: FC = () => {
             type="text"
             className="header__search-input"
             value={inputValue}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            ref={inputRef}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
               setInputValue(e.target.value)
             }
           />
